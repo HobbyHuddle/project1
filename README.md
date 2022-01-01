@@ -4,9 +4,8 @@ First project is undecided! This is template for project info that may be useful
 
 ## Collaboration
 
-* [Discord](https://discord.gg/TSpCvteA)
-* [Help Docs]()
-* [Project Board](https://github.com/HobbyHuddle/project1)
+* [Discord](https://discord.gg/GHtTV2B7)
+* [Project Board](https://trello.com/b/03rH8V64/project-1)
 
 Every project from Hobby Huddle is open to all who want to join. The only rule is that you must see the project to the finish line if you decide to participate. 
 

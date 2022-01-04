@@ -12,7 +12,6 @@ public class GroundCheck : MonoBehaviour
     {
         // FIXME: divide by 3 workaround - why is boxCollider.size bigger than it appears in the scene? due to player scaling?
         RaycastHit2D hit = Physics2D.BoxCast(transform.position, boxCollider.size/3, 0, boxCastDirection, distanceToTarget,targetLayer);
-        Debug.Log("Collision check: " + hit.collider);
         return hit.collider != null;
     }
 

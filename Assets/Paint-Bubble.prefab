@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4415782150895331799}
   - component: {fileID: 9147700581001530007}
   - component: {fileID: 5160443933861196703}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Paint-Bubble
   m_TagString: Untagged
   m_Icon: {fileID: 0}

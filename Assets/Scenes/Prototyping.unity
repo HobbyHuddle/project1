@@ -267,7 +267,7 @@ GameObject:
   - component: {fileID: 99496623}
   - component: {fileID: 99496622}
   - component: {fileID: 99496626}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -406,7 +406,7 @@ GameObject:
   - component: {fileID: 299649897}
   - component: {fileID: 299649896}
   - component: {fileID: 299649895}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1080,7 +1080,7 @@ GameObject:
   - component: {fileID: 1024611409}
   - component: {fileID: 1024611408}
   - component: {fileID: 1024611407}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1373,7 +1373,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1572722526}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1438,7 +1438,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1707497208}
   - component: {fileID: 1707497209}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Shooter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1474,13 +1474,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dirToMouse: {x: 0, y: 0}
   raycast2DEndPoint: {x: 0, y: 0}
+  raycast2DHitPoint: {x: 0, y: 0}
   raycast2DHitObject: {fileID: 0}
   bulletPrefab: {fileID: 8450536478144450188, guid: baa6b40fa1aea164bb2fd95ad43182d8, type: 3}
   bulletSpawnPoint: {fileID: 1782156244}
   gun: {fileID: 1572722525}
+  player: {fileID: 99496621}
   bulletCollideLayer: 0
-  projectileSpeed: 1
-  raycastDistance: 5
+  projectileSpeed: 750
+  raycastDistance: 25
 --- !u!1 &1782156244
 GameObject:
   m_ObjectHideFlags: 0
@@ -1490,7 +1492,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1782156245}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BulletSpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1521,7 +1523,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1912870020}
   - component: {fileID: 1912870021}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1770,7 +1772,7 @@ GameObject:
   - component: {fileID: 2031067683}
   - component: {fileID: 2031067682}
   - component: {fileID: 2031067681}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class ShooterScript : MonoBehaviour
 {
-    [SerializeField] private Vector2 dirToMouse, raycast2DEndPoint;
-    [SerializeField] private GameObject raycast2DHitObject, bulletPrefab, bulletSpawnPoint, gun;
+    [SerializeField] private Vector2 dirToMouse, raycast2DEndPoint, raycast2DHitPoint;
+    [SerializeField] private GameObject raycast2DHitObject, bulletPrefab, bulletSpawnPoint, gun, player;
     [SerializeField] private int bulletCollideLayer;
     [SerializeField] private float projectileSpeed;
     public float raycastDistance = 5f;
@@ -33,14 +33,15 @@ public class ShooterScript : MonoBehaviour
 
     private void Shoot()
     {
-        RaycastHit2D hit = Physics2D.Raycast(gun.transform.position, dirToMouse, raycastDistance, bulletCollideLayer);
-        raycast2DEndPoint = new Vector2(bulletSpawnPoint.transform.position.x, bulletSpawnPoint.transform.position.y) + (dirToMouse.normalized * raycastDistance);
-
+        RaycastHit2D hit = Physics2D.Raycast(gun.transform.position, gun.transform.right, raycastDistance, bulletCollideLayer);
+        raycast2DEndPoint = new Vector2(gun.transform.position.x, gun.transform.position.y) + (dirToMouse.normalized * raycastDistance);
+        
         if (hit.collider != null)
         {
             Debug.Log("Did Hit " + raycast2DHitObject);
-            Debug.DrawLine(bulletSpawnPoint.transform.position, raycast2DEndPoint, Color.green, 2);
+            Debug.DrawLine(bulletSpawnPoint.transform.position, hit.point, Color.green, 2);
             raycast2DHitObject = hit.collider.transform.gameObject;
+            raycast2DHitPoint = hit.point;
         }
         else
         {
@@ -51,6 +52,6 @@ public class ShooterScript : MonoBehaviour
 
         GameObject clone = Instantiate(bulletPrefab, bulletSpawnPoint.transform.position, bulletSpawnPoint.transform.rotation);
         var rb2D = clone.gameObject.GetComponent<Rigidbody2D>();
-        rb2D.AddForce(dirToMouse * projectileSpeed);
+        rb2D.AddForce(clone.transform.right * projectileSpeed);
     }
 }

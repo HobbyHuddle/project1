@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PowerUpSystem : MonoBehaviour
 {
-    public int powerUpCount;
     public Bounce bounce;
     public Charge charge;
 

@@ -1,4 +1,4 @@
-using Data;
+using DataModels;
 using UnityEngine;
 
 public class CollectibleItem : MonoBehaviour
@@ -16,7 +16,9 @@ public class CollectibleItem : MonoBehaviour
     {
         if (col.gameObject.CompareTag("Player"))
         {
+            var player = col.gameObject.GetComponent<PlayerCharacter>();
             // TODO: add item to players inventory
+            player.CollectItem(item);
             Destroy(gameObject);
         }
     }

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Data
+namespace DataModels
 {
     /// <summary>
     /// Used to create and define new game items.

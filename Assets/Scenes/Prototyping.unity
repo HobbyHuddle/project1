@@ -269,7 +269,7 @@ GameObject:
   - component: {fileID: 99496626}
   m_Layer: 7
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -391,9 +391,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  smoothDampening: 0.05
   jumpHeight: 2
   airTimeLimit: 0.3
+  gravity: 8
+  smoothDampening: 0.05
   groundCheck: {fileID: 299649895}
 --- !u!1 &299649894
 GameObject:
@@ -1438,6 +1439,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1707497208}
   - component: {fileID: 1707497209}
+  - component: {fileID: 1707497210}
   m_Layer: 7
   m_Name: Shooter
   m_TagString: Untagged
@@ -1472,17 +1474,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bc13d005ed8ee34e8c7ea2fda18f18c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dirToMouse: {x: 0, y: 0}
-  raycast2DEndPoint: {x: 0, y: 0}
-  raycast2DHitPoint: {x: 0, y: 0}
   raycast2DHitObject: {fileID: 0}
   bulletPrefab: {fileID: 8450536478144450188, guid: baa6b40fa1aea164bb2fd95ad43182d8, type: 3}
   bulletSpawnPoint: {fileID: 1782156244}
   gun: {fileID: 1572722525}
-  player: {fileID: 99496621}
-  bulletCollideLayer: 0
   projectileSpeed: 750
-  raycastDistance: 25
+  cooldown: 3
+--- !u!114 &1707497210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1707497207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a75c21c363782a4fb968e5008ed0482, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  powerUp: none
+  bounceCount: 0
 --- !u!1 &1782156244
 GameObject:
   m_ObjectHideFlags: 0

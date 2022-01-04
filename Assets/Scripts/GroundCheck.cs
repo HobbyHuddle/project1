@@ -10,8 +10,8 @@ public class GroundCheck : MonoBehaviour
 
     public bool IsTouching()
     {
-        RaycastHit2D hit = Physics2D.BoxCast(transform.position, boxCollider.size, 0, boxCastDirection, distanceToTarget,targetLayer);
-        //Debug.Log("Collision check: " + hit.collider);
+        // FIXME: divide by 3 workaround - why is boxCollider.size bigger than it appears in the scene? due to player scaling?
+        RaycastHit2D hit = Physics2D.BoxCast(transform.position, boxCollider.size/3, 0, boxCastDirection, distanceToTarget,targetLayer);
         return hit.collider != null;
     }
 

@@ -1,11 +1,14 @@
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody2D))]
 public class CharacterController2D : MonoBehaviour
 {
     public float speed;
-    public float smoothDampening;
     public float jumpHeight;
-    public float airTimeLimit = 0.3f;
+    [Tooltip("Amount of time jumping in the air")] public float airTimeLimit = 0.3f;
+    public int gravity = 8;
+    [Tooltip("Smooths player movement transitions."), Range(0, 0.2f)]
+    public float smoothDampening;
     public GroundCheck groundCheck;
 
     private float airTime;
@@ -22,6 +25,7 @@ public class CharacterController2D : MonoBehaviour
     void Start()
     {
         rigidbody2d = GetComponent<Rigidbody2D>();
+        rigidbody2d.gravityScale = gravity;
     }
 
     private void Update()
@@ -34,17 +38,16 @@ public class CharacterController2D : MonoBehaviour
 
         isGrounded = groundCheck.IsTouching();
 
-        if (isJumping)
-        {
-            airTime += Time.deltaTime;
-        }
-        
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
             isJumping = true;
             airTime = 0;
         }
-
+        if (isJumping)
+        {
+            airTime += Time.deltaTime;
+        }
+        
         // FIXME: performance of the air limit isn't limiting air time correctly.
         if (Input.GetButtonUp("Jump") | airTime > airTimeLimit)
         {

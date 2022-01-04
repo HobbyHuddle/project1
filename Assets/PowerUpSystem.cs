@@ -6,14 +6,7 @@ public class PowerUpSystem : MonoBehaviour
 {
     public int powerUpCount;
     public Bounce bounce;
-    public List<Bounce> powerUps = new List<Bounce>();
-
-
-    private void Start()
-    {
-        powerUps.Add(bounce);
-    }
-
+    public Charge charge;
 
     [System.Serializable]
     public class PowerUp
@@ -43,13 +36,15 @@ public class PowerUpSystem : MonoBehaviour
     [System.Serializable]
     public class Charge : PowerUp
     {
-        public float MaxChargeTime;
+        public float ChargeRatePerSecond;
+        public Vector2 MaxChargeSize;
 
         public Charge()
         {
-            Name = "Bounce";
+            Name = "Charge";
             Active = false;
-            MaxChargeTime = 3;
+            ChargeRatePerSecond = 1f;
+            MaxChargeSize = new Vector2(3f, 3f);
         }
     }
 }

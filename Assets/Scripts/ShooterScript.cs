@@ -6,12 +6,12 @@ public class ShooterScript : MonoBehaviour
 {
     PowerUpSystem powerUpSystem;
 
-    private Vector2 dirToMouse, raycast2DEndPoint, raycast2DHitPoint;
+    private Vector2 dirToMouse, raycast2DEndPoint, raycast2DHitPoint, bubbleSize;
     [SerializeField] private GameObject raycast2DHitObject, bulletPrefab, bulletSpawnPoint, gun;
     private int bulletCollideLayer;
     [SerializeField] private float projectileSpeed, cooldown;
     private float raycastDistance = 25;
-    [SerializeField] private bool cooldownRunning, mouseButtonDown;
+    [SerializeField] private bool cooldownRunning, chargeUpRunning, mouseButtonDown;
 
 
     private void Awake()
@@ -22,6 +22,8 @@ public class ShooterScript : MonoBehaviour
     private void Start()
     {
         bulletCollideLayer = LayerMask.GetMask("Platform");
+
+        bubbleSize = new Vector2(0.3f, 0.3f);
     }
 
     private void Update()
@@ -54,13 +56,24 @@ public class ShooterScript : MonoBehaviour
 
     private void PowerUpOnShot()
     {
-        if(powerUpSystem.powerUpCount == 0)
+        if(powerUpSystem.charge.Active == false)
         {
             Shoot();
         }
         else
         {
+            if(chargeUpRunning == false)
+            {
+                StartCoroutine(ChargeUp());
+            }
 
+            if(mouseButtonDown == false)
+            {
+                StopCoroutine(ChargeUp());
+                Shoot();
+                bubbleSize = new Vector2(0.3f, 0.3f);
+                chargeUpRunning = false;
+            }
         }
     }
 
@@ -70,7 +83,7 @@ public class ShooterScript : MonoBehaviour
 
         RaycastHit2D hit = Physics2D.Raycast(gun.transform.position, gun.transform.right, raycastDistance, bulletCollideLayer);
         raycast2DEndPoint = new Vector2(gun.transform.position.x, gun.transform.position.y) + (dirToMouse.normalized * raycastDistance);
-        
+
         if (hit.collider != null)
         {
             Debug.DrawLine(bulletSpawnPoint.transform.position, hit.point, Color.green, 2);
@@ -88,6 +101,8 @@ public class ShooterScript : MonoBehaviour
 
         var rb2D = clone.gameObject.GetComponent<Rigidbody2D>();
         rb2D.AddForce(clone.transform.right * projectileSpeed);
+
+        clone.transform.localScale = bubbleSize;
     }
 
     IEnumerator Cooldown()
@@ -96,6 +111,36 @@ public class ShooterScript : MonoBehaviour
         yield return new WaitForSeconds(cooldown);
         cooldownRunning = false;
         yield break;
+    }
+
+    IEnumerator ChargeUp()
+    {
+        chargeUpRunning = true;
+
+        while(true)
+
+            if(mouseButtonDown == true)
+            {
+                if(powerUpSystem.charge.MaxChargeSize.x > bubbleSize.x)
+                {
+                    bubbleSize.x += powerUpSystem.charge.ChargeRatePerSecond * 0.1f;
+                    bubbleSize.y += powerUpSystem.charge.ChargeRatePerSecond * 0.1f;
+                    yield return new WaitForSeconds(0.1f);
+                }
+
+                else
+                {
+                    Debug.Log("Max chargeSize reached");
+                    yield return new WaitForSeconds(1f);
+                }
+            }
+            else
+            {
+                Shoot();
+                bubbleSize = new Vector2(0.3f, 0.3f);
+                chargeUpRunning = false;
+                yield break;
+            }
     }
 
 

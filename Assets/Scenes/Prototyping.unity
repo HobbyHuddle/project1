@@ -1409,9 +1409,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a75c21c363782a4fb968e5008ed0482, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bounceCount: 2
   powerUpCount: 0
-  PowerUps: []
+  bounce:
+    Name: Bounce
+    Active: 0
+    BounceCount: 1
+  charge:
+    Name: Bounce
+    Active: 0
+    ChargeRatePerSecond: 1
+    MaxChargeSize: {x: 3, y: 3}
 --- !u!1 &1572722525
 GameObject:
   m_ObjectHideFlags: 0
@@ -1525,8 +1532,9 @@ MonoBehaviour:
   bulletSpawnPoint: {fileID: 1782156244}
   gun: {fileID: 1572722525}
   projectileSpeed: 750
-  cooldown: 3
+  cooldown: 1
   cooldownRunning: 0
+  chargeUpRunning: 0
   mouseButtonDown: 0
 --- !u!1 &1782156244
 GameObject:

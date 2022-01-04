@@ -16,7 +16,7 @@ public class BulletScript : MonoBehaviour
 
     private void Start()
     {
-        //bounceCount = powerUpSystem.PowerUps[1].Count;
+        bounceCount = powerUpSystem.bounce.BounceCount;
     }
 
 
@@ -27,7 +27,7 @@ public class BulletScript : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-       if (powerUpSystem.powerUps[1].Active == true)
+       if (powerUpSystem.bounce.Active == true)
         {
             if (bounceCount == 0)
             {

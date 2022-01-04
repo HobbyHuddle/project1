@@ -4,48 +4,43 @@ using UnityEngine;
 
 public class BulletScript : MonoBehaviour
 {
-    public BulletData bulletdata;
-    public GameObject Shooter, player;
+    public PowerUpSystem powerUpSystem;
+    public GameObject Shooter;
 
-    public string powerUp;
     public int bounceCount;
 
     private void Awake()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
-        bulletdata = player.transform.Find("Shooter").GetComponent<BulletData>();
+        powerUpSystem = GameObject.FindGameObjectWithTag("Player").transform.Find("PowerUpSystem").GetComponent<PowerUpSystem>();
+    }
 
-        powerUp = bulletdata.powerUp;
-        bounceCount = bulletdata.bounceCount;
+    private void Start()
+    {
+        //bounceCount = powerUpSystem.PowerUps[1].Count;
+    }
+
+
+    private void Update()
+    {
+        
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        switch (powerUp)
+       if (powerUpSystem.powerUps[1].Active == true)
         {
-            case "none":
-
-                Debug.Log("Case none");
+            if (bounceCount == 0)
+            {
                 GameObject.Destroy(this.transform.gameObject);
-
-                break;
-
-            case "bounce":
-
-                if(bounceCount == 0)
-                {
-                    GameObject.Destroy(this.transform.gameObject);
-                }
-                else
-                {
-                    bounceCount -= 1;
-                }
-
-                Debug.Log("Case bounce");
-
-                break;
+            }
+            else
+            {
+               bounceCount -= 1;
+            }
         }
-
-
+        else
+        {
+            GameObject.Destroy(this.transform.gameObject);
+        }
     }
 }

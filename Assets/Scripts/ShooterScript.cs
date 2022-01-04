@@ -4,13 +4,20 @@ using UnityEngine;
 
 public class ShooterScript : MonoBehaviour
 {
+    PowerUpSystem powerUpSystem;
+
     private Vector2 dirToMouse, raycast2DEndPoint, raycast2DHitPoint;
     [SerializeField] private GameObject raycast2DHitObject, bulletPrefab, bulletSpawnPoint, gun;
     private int bulletCollideLayer;
     [SerializeField] private float projectileSpeed, cooldown;
     private float raycastDistance = 25;
-    private bool cooldownRunning;
+    [SerializeField] private bool cooldownRunning, mouseButtonDown;
 
+
+    private void Awake()
+    {
+        powerUpSystem = GameObject.FindGameObjectWithTag("Player").transform.Find("PowerUpSystem").GetComponent<PowerUpSystem>();
+    }
 
     private void Start()
     {
@@ -25,13 +32,35 @@ public class ShooterScript : MonoBehaviour
         float angle = Mathf.Atan2(dirToMouse.y, dirToMouse.x) * Mathf.Rad2Deg;
         gun.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 
+
         //Left-Click To Shoot
         if (Input.GetKey(KeyCode.Mouse0))
         {
-            if(cooldownRunning == false)
+            mouseButtonDown = true;
+        }
+        else
+        {
+            mouseButtonDown = false;
+        }
+        if(mouseButtonDown)
+        {
+            if (cooldownRunning == false)
             {
-                Shoot();
+                PowerUpOnShot();
             }
+        }
+    }
+
+
+    private void PowerUpOnShot()
+    {
+        if(powerUpSystem.powerUpCount == 0)
+        {
+            Shoot();
+        }
+        else
+        {
+
         }
     }
 
@@ -68,4 +97,6 @@ public class ShooterScript : MonoBehaviour
         cooldownRunning = false;
         yield break;
     }
+
+
 }

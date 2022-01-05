@@ -2122,7 +2122,7 @@ MonoBehaviour:
   cooldownRunning: 0
   chargeUpRunning: 0
   mouseButtonDown: 0
-  paintColor: {r: 0.8396226, g: 0.11617411, b: 0.11617411, a: 0}
+  paintColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &1738502523
 GameObject:
   m_ObjectHideFlags: 0

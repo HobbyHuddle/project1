@@ -35,6 +35,9 @@ public class BulletScript : MonoBehaviour
         Vector2 pos = contact.point;
 
         GameObject paint = Instantiate(shooterScript.environmentPaintPrefab , pos, rot, shooterScript.environmentPaintParent.transform);
+
+        paint.transform.localScale = transform.gameObject.transform.localScale;
+
         paint.GetComponent<EnvironmentPaintScript>().paintColor = shooterScript.paintColor;
 
        if (powerUpSystem.bounce.Active == true)

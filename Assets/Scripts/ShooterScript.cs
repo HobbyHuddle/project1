@@ -100,6 +100,8 @@ public class ShooterScript : MonoBehaviour
 
         GameObject clone = Instantiate(bulletPrefab, bulletSpawnPoint.transform.position, bulletSpawnPoint.transform.rotation, bulletsParent.transform);
 
+        clone.GetComponent<SpriteRenderer>().color = paintColor;
+
         var rb2D = clone.gameObject.GetComponent<Rigidbody2D>();
         rb2D.AddForce(clone.transform.right * projectileSpeed);
 

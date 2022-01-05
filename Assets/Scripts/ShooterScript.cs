@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ShooterScript : MonoBehaviour
 {
-    PowerUpSystem powerUpSystem;
+    public PowerUpSystem powerUpSystem;
 
     private Vector2 dirToMouse, raycast2DEndPoint, raycast2DHitPoint, bubbleSize;
     [SerializeField] private GameObject raycast2DHitObject, bulletPrefab, bulletsParent, bulletSpawnPoint, gun;
@@ -14,11 +14,6 @@ public class ShooterScript : MonoBehaviour
     private float raycastDistance = 25;
     [SerializeField] private bool cooldownRunning, chargeUpRunning, mouseButtonDown;
     public Color paintColor;
-
-    private void Awake()
-    {
-        powerUpSystem = GameObject.FindGameObjectWithTag("Player").transform.Find("PowerUpSystem").GetComponent<PowerUpSystem>();
-    }
 
     private void Start()
     {

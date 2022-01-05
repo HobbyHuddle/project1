@@ -46,12 +46,12 @@ MonoBehaviour:
   m_Name: SuperUnityBuildSettings
   m_EditorClassIdentifier: 
   _basicSettings:
-    baseBuildFolder: Builds
+    baseBuildFolder: Build
     buildPath: $VERSION/$RELEASE_TYPE/$PLATFORM/$ARCHITECTURE
-    openFolderPostBuild: 1
+    openFolderPostBuild: 0
   _productParameters:
-    buildCounter: 0
-    buildVersion: 
+    buildCounter: 1
+    buildVersion: 1.0.0.1
     versionTemplate: 1.0.0.$BUILD
     autoGenerate: 1
     syncWithPlayerSettings: 0
@@ -67,38 +67,40 @@ MonoBehaviour:
         enabledScenes: []
   _platformList:
     platforms:
-    - {fileID: 7846002823813125327}
+    - {fileID: 2262587072758063314}
   _projectConfigurations:
     configSet:
-      _Buckets: ffffffffffffffff00000000
-      _HashCodes: a76761490000000000000000
-      _Next: ffffffff0000000000000000
-      _Count: 1
-      _Version: 1
+      _Buckets: 010000000000000002000000
+      _HashCodes: a728bd13b7d47a29a7676149
+      _Next: ffffffffffffffffffffffff
+      _Count: 3
+      _Version: 3
       _FreeList: -1
       _FreeCount: 0
       _Keys:
+      - Development/WebGL/WebGL
+      - Development/WebGL
       - Development
-      - 
-      - 
       _Values:
       - enabled: 1
         childKeys: []
       - enabled: 1
-        childKeys: []
+        childKeys:
+        - Development/WebGL/WebGL
       - enabled: 1
-        childKeys: []
+        childKeys:
+        - Development/WebGL
     showViewOptions: 0
     showConfigs: 0
     showBuildInfo: 0
     hideDisabled: 0
     treeView: 0
-    selectedKeyChain: 
+    selectedKeyChain: Development/WebGL/WebGL
   _preBuildActions:
     buildActions: []
   _postBuildActions:
     buildActions: []
---- !u!114 &7846002823813125327
+--- !u!114 &2262587072758063314
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -107,27 +109,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2786f6b2301a94f4288672ff5305244c, type: 3}
+  m_Script: {fileID: 11500000, guid: 0acaf75cc66fc934ea46bf602fc7c245, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enabled: 0
+  enabled: 1
   distributionList:
     distributions: []
   architectures:
-  - target: 5
-    name: Windows x86
+  - target: 20
+    name: WebGL
     enabled: 1
-    binaryNameFormat: '{0}.exe'
-  - target: 19
-    name: Windows x64
-    enabled: 0
-    binaryNameFormat: '{0}.exe'
-  variants:
-  - variantName: Build Output
-    selectedIndex: 0
-    values:
-    - App
-    - Visual Studio Solution
-  platformName: PC
+    binaryNameFormat: '{0}'
+  variants: []
+  platformName: WebGL
   dataDirNameFormat: '{0}_Data'
-  targetGroup: 1
+  targetGroup: 13

@@ -12,24 +12,12 @@ public class PowerUpSystem : MonoBehaviour
     {
         public string Name;
         public bool Active;
-
-        public PowerUp()
-        {
-            Name = "None";
-            Active = false;
-        }
     }
 
     [System.Serializable]
     public class Bounce : PowerUp
     {
         public int BounceCount;
-        public Bounce()
-        {
-            Name = "Bounce";
-            Active = false;
-            BounceCount = 1;
-        }
     }
 
     [System.Serializable]
@@ -37,14 +25,6 @@ public class PowerUpSystem : MonoBehaviour
     {
         public float ChargeRatePerSecond;
         public Vector2 MaxChargeSize;
-
-        public Charge()
-        {
-            Name = "Charge";
-            Active = false;
-            ChargeRatePerSecond = 1f;
-            MaxChargeSize = new Vector2(3f, 3f);
-        }
     }
 }
 

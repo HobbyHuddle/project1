@@ -7,12 +7,13 @@ public class ShooterScript : MonoBehaviour
     PowerUpSystem powerUpSystem;
 
     private Vector2 dirToMouse, raycast2DEndPoint, raycast2DHitPoint, bubbleSize;
-    [SerializeField] private GameObject raycast2DHitObject, bulletPrefab, bulletSpawnPoint, gun;
+    [SerializeField] private GameObject raycast2DHitObject, bulletPrefab, bulletsParent, bulletSpawnPoint, gun;
+    public GameObject environmentPaintPrefab, environmentPaintParent;
     private int bulletCollideLayer;
     [SerializeField] private float projectileSpeed, cooldown;
     private float raycastDistance = 25;
     [SerializeField] private bool cooldownRunning, chargeUpRunning, mouseButtonDown;
-
+    public Color paintColor;
 
     private void Awake()
     {
@@ -97,7 +98,7 @@ public class ShooterScript : MonoBehaviour
         }
 
 
-        GameObject clone = Instantiate(bulletPrefab, bulletSpawnPoint.transform.position, bulletSpawnPoint.transform.rotation);
+        GameObject clone = Instantiate(bulletPrefab, bulletSpawnPoint.transform.position, bulletSpawnPoint.transform.rotation, bulletsParent.transform);
 
         var rb2D = clone.gameObject.GetComponent<Rigidbody2D>();
         rb2D.AddForce(clone.transform.right * projectileSpeed);

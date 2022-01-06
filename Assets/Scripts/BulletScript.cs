@@ -8,6 +8,7 @@ public class BulletScript : MonoBehaviour
     public ShooterScript shooterScript;
 
     private int bounceCount;
+    private float maxTimeAlive = 10f;
 
     private void Awake()
     {
@@ -19,16 +20,13 @@ public class BulletScript : MonoBehaviour
     private void Start()
     {
         bounceCount = powerUpSystem.bounce.BounceCount;
+        StartCoroutine(TimeDeath());
     }
 
-
-    private void Update()
-    {
-        
-    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        //CollisionData
         ContactPoint2D contact = collision.contacts[0];
         Quaternion rot = Random.rotation;
         rot.x = 0;
@@ -37,10 +35,13 @@ public class BulletScript : MonoBehaviour
 
         GameObject paint = Instantiate(shooterScript.environmentPaintPrefab , pos, rot, shooterScript.environmentPaintParent.transform);
 
+        //Set Scale (Incase of charge)
         paint.transform.localScale = transform.gameObject.transform.localScale;
 
+        //Set Color
         paint.GetComponent<EnvironmentPaintScript>().paintColor = shooterScript.paintColor;
 
+        //Bounce Effect
        if (powerUpSystem.bounce.Active == true)
         {
             if (bounceCount == 0)
@@ -56,5 +57,14 @@ public class BulletScript : MonoBehaviour
         {
             GameObject.Destroy(this.transform.gameObject);
         }
+    }
+
+
+    //Destroy itself after x seconds.
+    IEnumerator TimeDeath()
+    {
+        yield return new WaitForSeconds(maxTimeAlive);
+
+        GameObject.Destroy(this.transform.gameObject);
     }
 }

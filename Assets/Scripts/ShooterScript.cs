@@ -4,22 +4,12 @@ using UnityEngine;
 
 public class ShooterScript : MonoBehaviour
 {
-    public PowerUpSystem powerUpSystem;
-
-    private Vector2 dirToMouse, bubbleSize;
-    [SerializeField] private GameObject bulletPrefab, bulletsParent, bulletSpawnPoint, gun;
-    public GameObject environmentPaintPrefab, environmentPaintParent;
-    private int bulletCollideLayer;
+    [HideInInspector] public PowerUpSystem powerUpSystem;
+    private Vector2 dirToMouse, bubbleSize = new Vector2 (0.3f, 0.3f);
+    [HideInInspector] public GameObject environmentPaintPrefab, environmentPaintParent, bulletPrefab, bulletsParent, bulletSpawnPoint, gun;
     [SerializeField] private float projectileSpeed, cooldown;
     private bool cooldownRunning, chargeUpRunning;
     public Color paintColor;
-
-    private void Start()
-    {
-        bulletCollideLayer = LayerMask.GetMask("Platform");
-
-        bubbleSize = new Vector2(0.3f, 0.3f);
-    }
 
     private void Update()
     {

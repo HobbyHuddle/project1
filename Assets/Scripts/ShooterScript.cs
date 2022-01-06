@@ -6,13 +6,12 @@ public class ShooterScript : MonoBehaviour
 {
     public PowerUpSystem powerUpSystem;
 
-    private Vector2 dirToMouse, raycast2DEndPoint, raycast2DHitPoint, bubbleSize;
-    [SerializeField] private GameObject raycast2DHitObject, bulletPrefab, bulletsParent, bulletSpawnPoint, gun;
+    private Vector2 dirToMouse, bubbleSize;
+    [SerializeField] private GameObject bulletPrefab, bulletsParent, bulletSpawnPoint, gun;
     public GameObject environmentPaintPrefab, environmentPaintParent;
     private int bulletCollideLayer;
     [SerializeField] private float projectileSpeed, cooldown;
-    private float raycastDistance = 25;
-    [SerializeField] private bool cooldownRunning, chargeUpRunning, mouseButtonDown;
+    private bool cooldownRunning, chargeUpRunning;
     public Color paintColor;
 
     private void Start()
@@ -32,15 +31,7 @@ public class ShooterScript : MonoBehaviour
 
 
         //Left-Click To Shoot
-        if (Input.GetKey(KeyCode.Mouse0))
-        {
-            mouseButtonDown = true;
-        }
-        else
-        {
-            mouseButtonDown = false;
-        }
-        if(mouseButtonDown)
+        if(Input.GetKey(KeyCode.Mouse0))
         {
             if (cooldownRunning == false)
             {
@@ -50,6 +41,7 @@ public class ShooterScript : MonoBehaviour
     }
 
 
+    //This will calculate many different PowerUps which apply BEFORE the bullet is fired. As of right now, its only the charge effect.
     private void PowerUpOnShot()
     {
         if(powerUpSystem.charge.Active == false)
@@ -62,36 +54,14 @@ public class ShooterScript : MonoBehaviour
             {
                 StartCoroutine(ChargeUp());
             }
-
-            if(mouseButtonDown == false)
-            {
-                StopCoroutine(ChargeUp());
-                Shoot();
-                bubbleSize = new Vector2(0.3f, 0.3f);
-                chargeUpRunning = false;
-            }
         }
     }
 
+
+    //Stardard Shot function. Spawns the bullet and shot it in the aimed direction.
     private void Shoot()
     {
         StartCoroutine(Cooldown());
-
-        RaycastHit2D hit = Physics2D.Raycast(gun.transform.position, gun.transform.right, raycastDistance, bulletCollideLayer);
-        raycast2DEndPoint = new Vector2(gun.transform.position.x, gun.transform.position.y) + (dirToMouse.normalized * raycastDistance);
-
-        if (hit.collider != null)
-        {
-            Debug.DrawLine(bulletSpawnPoint.transform.position, hit.point, Color.green, 2);
-            raycast2DHitObject = hit.collider.transform.gameObject;
-            raycast2DHitPoint = hit.point;
-        }
-        else
-        {
-            Debug.Log("Raycast did not hit any object! is there a gap in the level borders?");
-            Debug.DrawLine(bulletSpawnPoint.transform.position, raycast2DEndPoint, Color.red, 2);
-        }
-
 
         GameObject clone = Instantiate(bulletPrefab, bulletSpawnPoint.transform.position, bulletSpawnPoint.transform.rotation, bulletsParent.transform);
 
@@ -101,8 +71,11 @@ public class ShooterScript : MonoBehaviour
         rb2D.AddForce(clone.transform.right * projectileSpeed);
 
         clone.transform.localScale = bubbleSize;
+        bubbleSize = new Vector2(0.3f, 0.3f);
     }
 
+
+    //Cooldown coroutine. Takes the coolddown variable to wait in seconds.
     IEnumerator Cooldown()
     {
         cooldownRunning = true;
@@ -111,13 +84,15 @@ public class ShooterScript : MonoBehaviour
         yield break;
     }
 
+
+    //ChargeUp mechanic. it changes the bubblesize the longer you hold down the mouseButton.
     IEnumerator ChargeUp()
     {
         chargeUpRunning = true;
 
         while(true)
 
-            if(mouseButtonDown == true)
+            if(Input.GetKey(KeyCode.Mouse0))
             {
                 if(powerUpSystem.charge.MaxChargeSize.x > bubbleSize.x)
                 {
@@ -129,13 +104,12 @@ public class ShooterScript : MonoBehaviour
                 else
                 {
                     Debug.Log("Max chargeSize reached");
-                    yield return new WaitForSeconds(1f);
+                    yield return null;
                 }
             }
             else
             {
                 Shoot();
-                bubbleSize = new Vector2(0.3f, 0.3f);
                 chargeUpRunning = false;
                 yield break;
             }

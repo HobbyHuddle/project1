@@ -925,6 +925,26 @@ PrefabInstance:
       propertyPath: environmentPaintPrefab
       value: 
       objectReference: {fileID: 628070548456611317, guid: 0dd69f20085d8ba429d64ab5d94c9420, type: 3}
+    - target: {fileID: 7128465865926663689, guid: c0625cad11c53084793908a1524fe62c, type: 3}
+      propertyPath: bounce.Name
+      value: Bounce
+      objectReference: {fileID: 0}
+    - target: {fileID: 7128465865926663689, guid: c0625cad11c53084793908a1524fe62c, type: 3}
+      propertyPath: charge.Name
+      value: Charge
+      objectReference: {fileID: 0}
+    - target: {fileID: 7128465865926663689, guid: c0625cad11c53084793908a1524fe62c, type: 3}
+      propertyPath: charge.MaxChargeSize.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7128465865926663689, guid: c0625cad11c53084793908a1524fe62c, type: 3}
+      propertyPath: charge.MaxChargeSize.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7128465865926663689, guid: c0625cad11c53084793908a1524fe62c, type: 3}
+      propertyPath: charge.ChargeRatePerSecond
+      value: 0.1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0625cad11c53084793908a1524fe62c, type: 3}
 --- !u!1 &1024611405

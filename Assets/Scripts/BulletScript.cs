@@ -7,12 +7,13 @@ public class BulletScript : MonoBehaviour
     public PowerUpSystem powerUpSystem;
     public ShooterScript shooterScript;
 
-    public int bounceCount;
+    private int bounceCount;
 
     private void Awake()
     {
-        powerUpSystem = GameObject.FindGameObjectWithTag("Player").transform.Find("PowerUpSystem").GetComponent<PowerUpSystem>();
-        shooterScript = GameObject.FindGameObjectWithTag("Player").transform.Find("Shooter").GetComponent<ShooterScript>();
+        GameObject shooter = GameObject.FindGameObjectWithTag("Player").transform.Find("Shooter").gameObject;
+        powerUpSystem = shooter.GetComponent<PowerUpSystem>();
+        shooterScript = shooter.GetComponent<ShooterScript>();
     }
 
     private void Start()

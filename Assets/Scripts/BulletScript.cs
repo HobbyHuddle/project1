@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DeTay.Pooler;
 
 public class BulletScript : MonoBehaviour
 {
@@ -46,7 +47,8 @@ public class BulletScript : MonoBehaviour
         {
             if (bounceCount == 0)
             {
-                GameObject.Destroy(this.transform.gameObject);
+                //GameObject.Destroy(this.transform.gameObject);
+                Pooler.Destroy(gameObject);
             }
             else
             {
@@ -55,7 +57,8 @@ public class BulletScript : MonoBehaviour
         }
         else
         {
-            GameObject.Destroy(this.transform.gameObject);
+            //GameObject.Destroy(this.transform.gameObject);
+            Pooler.Destroy(gameObject);
         }
     }
 
@@ -65,6 +68,7 @@ public class BulletScript : MonoBehaviour
     {
         yield return new WaitForSeconds(maxTimeAlive);
 
-        GameObject.Destroy(this.transform.gameObject);
+        //GameObject.Destroy(this.transform.gameObject);
+        Pooler.Destroy(gameObject);
     }
 }

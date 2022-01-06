@@ -28,8 +28,6 @@ public class Pool : MonoBehaviour
                     spawnedObjects[index] = instance;
                     index++;
 
-
-                    //spawnedObjects.Add(instance);
                     instance.SetActive(false);
                 }
                 else
@@ -39,8 +37,6 @@ public class Pool : MonoBehaviour
                     spawnedObjects[index] = instance;
                     index++;
 
-
-                    //spawnedObjects.Add(instance);
                     instance.SetActive(false);
                 }
             }

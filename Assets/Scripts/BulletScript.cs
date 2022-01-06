@@ -34,7 +34,7 @@ public class BulletScript : MonoBehaviour
         rot.y = 0;
         Vector2 pos = contact.point;
 
-        GameObject paint = Instantiate(shooterScript.environmentPaintPrefab , pos, rot, shooterScript.environmentPaintParent.transform);
+        GameObject paint = Pooler.Instantiate("Paint", pos, rot);
 
         //Set Scale (Incase of charge)
         paint.transform.localScale = transform.gameObject.transform.localScale;
@@ -47,7 +47,6 @@ public class BulletScript : MonoBehaviour
         {
             if (bounceCount == 0)
             {
-                //GameObject.Destroy(this.transform.gameObject);
                 Pooler.Destroy(gameObject);
             }
             else
@@ -57,7 +56,6 @@ public class BulletScript : MonoBehaviour
         }
         else
         {
-            //GameObject.Destroy(this.transform.gameObject);
             Pooler.Destroy(gameObject);
         }
     }
@@ -68,7 +66,6 @@ public class BulletScript : MonoBehaviour
     {
         yield return new WaitForSeconds(maxTimeAlive);
 
-        //GameObject.Destroy(this.transform.gameObject);
         Pooler.Destroy(gameObject);
     }
 }

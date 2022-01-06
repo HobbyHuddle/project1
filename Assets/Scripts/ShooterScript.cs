@@ -54,7 +54,6 @@ public class ShooterScript : MonoBehaviour
     {
         StartCoroutine(Cooldown());
 
-        //GameObject clone = Instantiate(bulletPrefab, bulletSpawnPoint.transform.position, bulletSpawnPoint.transform.rotation, bulletsParent.transform);
         GameObject clone = Pooler.Instantiate("Bullet", bulletSpawnPoint.transform.position, bulletSpawnPoint.transform.rotation);
 
         clone.GetComponent<SpriteRenderer>().color = paintColor;
@@ -106,6 +105,4 @@ public class ShooterScript : MonoBehaviour
                 yield break;
             }
     }
-
-
 }

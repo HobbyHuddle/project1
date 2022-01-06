@@ -438,6 +438,7 @@ GameObject:
   m_Component:
   - component: {fileID: 213497217}
   - component: {fileID: 213497216}
+  - component: {fileID: 213497218}
   m_Layer: 0
   m_Name: Pooler
   m_TagString: Untagged
@@ -476,6 +477,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &213497218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 213497215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3be62438472d0b4f855a42bae1d043c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poolName: Paint
+  prefab: {fileID: 628070548456611317, guid: 0dd69f20085d8ba429d64ab5d94c9420, type: 3}
+  Parent: {fileID: 0}
+  spawnCount: 500
+  spawnedObjects: []
 --- !u!1 &266509300
 GameObject:
   m_ObjectHideFlags: 0

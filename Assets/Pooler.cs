@@ -24,12 +24,11 @@ namespace DeTay.Pooler
             SetPosition(availableGameobject, positon, rotation);
 
             return availableGameobject;
-
         }
 
-        public static void Destroy(GameObject g)
+        public static void Destroy(GameObject instance)
         {
-            g.SetActive(false);
+            instance.SetActive(false);
         }
 
         private static GameObject GetInactive(GameObject[] g)

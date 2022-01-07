@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class BulletScript : MonoBehaviour
 {
-    public PowerUpSystem powerUpSystem;
     public ShooterScript shooterScript;
 
     private int bounceCount;
@@ -13,13 +12,12 @@ public class BulletScript : MonoBehaviour
     private void Awake()
     {
         GameObject shooter = GameObject.FindGameObjectWithTag("Player").transform.Find("Shooter").gameObject;
-        powerUpSystem = shooter.GetComponent<PowerUpSystem>();
         shooterScript = shooter.GetComponent<ShooterScript>();
     }
 
     private void Start()
     {
-        bounceCount = powerUpSystem.bounce.BounceCount;
+        bounceCount = shooterScript.powerUpSystem.bounce.BounceCount;
         StartCoroutine(TimeDeath());
     }
 
@@ -42,7 +40,7 @@ public class BulletScript : MonoBehaviour
         paint.GetComponent<EnvironmentPaintScript>().paintColor = shooterScript.paintColor;
 
         //Bounce Effect
-       if (powerUpSystem.bounce.Active == true)
+       if (shooterScript.powerUpSystem.bounce.Active == true)
         {
             if (bounceCount == 0)
             {

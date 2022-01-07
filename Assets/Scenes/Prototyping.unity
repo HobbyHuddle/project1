@@ -428,72 +428,6 @@ Transform:
   m_Father: {fileID: 266509301}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &213497215
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 213497217}
-  - component: {fileID: 213497216}
-  - component: {fileID: 213497218}
-  m_Layer: 0
-  m_Name: Pooler
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &213497216
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 213497215}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3be62438472d0b4f855a42bae1d043c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  poolName: Bullet
-  prefab: {fileID: 8450536478144450188, guid: baa6b40fa1aea164bb2fd95ad43182d8, type: 3}
-  Parent: {fileID: 0}
-  spawnCount: 100
-  spawnedObjects: []
---- !u!4 &213497217
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 213497215}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &213497218
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 213497215}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3be62438472d0b4f855a42bae1d043c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  poolName: Paint
-  prefab: {fileID: 628070548456611317, guid: 0dd69f20085d8ba429d64ab5d94c9420, type: 3}
-  Parent: {fileID: 0}
-  spawnCount: 500
-  spawnedObjects: []
 --- !u!1 &266509300
 GameObject:
   m_ObjectHideFlags: 0
@@ -1701,6 +1635,64 @@ SpriteMask:
   m_BackSortingOrder: 0
   m_IsCustomRangeActive: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1845878577
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1845878579}
+  - component: {fileID: 1845878578}
+  m_Layer: 0
+  m_Name: Pooler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1845878578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1845878577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f4110d3af2b79b4db5b12d45cf6ea92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pools:
+  - poolName: Bullet
+    prefab: {fileID: 8450536478144450188, guid: baa6b40fa1aea164bb2fd95ad43182d8, type: 3}
+    spawnCount: 100
+    Parent: {fileID: 1845878577}
+    canGrow: 0
+    resetParentOnDestroy: 0
+    spawnedObjects: []
+  - poolName: Paint
+    prefab: {fileID: 628070548456611317, guid: 0dd69f20085d8ba429d64ab5d94c9420, type: 3}
+    spawnCount: 100
+    Parent: {fileID: 1845878577}
+    canGrow: 0
+    resetParentOnDestroy: 0
+    spawnedObjects: []
+--- !u!4 &1845878579
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1845878577}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1978558409
 GameObject:
   m_ObjectHideFlags: 0

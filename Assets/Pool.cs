@@ -3,17 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using DeTay.Pooler;
 
-public class Pool : MonoBehaviour
+[System.Serializable]
+public class Pool
 {
     public string poolName;
-    public GameObject prefab, Parent;
+    public GameObject prefab;
     public int spawnCount;
+    public GameObject Parent;
+    public bool canGrow, resetParentOnDestroy;
     private int index = 0;
 
     public GameObject[] spawnedObjects;
 
-
-    private void Awake()
+    public void CreateInstances()
     {
         spawnedObjects = new GameObject[spawnCount];
 
@@ -23,7 +25,7 @@ public class Pool : MonoBehaviour
             {
                 if (Parent != null)
                 {
-                    var instance = Instantiate(prefab, Parent.transform);
+                    var instance = Object.Instantiate(prefab, Parent.transform);
 
                     spawnedObjects[index] = instance;
                     index++;
@@ -32,7 +34,7 @@ public class Pool : MonoBehaviour
                 }
                 else
                 {
-                    var instance = Instantiate(prefab);
+                    var instance = Object.Instantiate(prefab);
 
                     spawnedObjects[index] = instance;
                     index++;

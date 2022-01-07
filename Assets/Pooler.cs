@@ -15,6 +15,9 @@ namespace DeTay.Pooler
             pools.Add(name, spawnedInstances);
         }
 
+
+
+
         public static GameObject Instantiate(string name, Vector3 positon, Quaternion rotation)
         {
             GameObject[] array = pools[name];
@@ -26,10 +29,30 @@ namespace DeTay.Pooler
             return availableGameobject;
         }
 
+        public static GameObject Instantiate(string name, Vector3 positon, Quaternion rotation, GameObject parent)
+        {
+            GameObject[] array = pools[name];
+
+            GameObject availableGameobject = GetInactive(array);
+
+            SetPosition(availableGameobject, positon, rotation);
+
+            availableGameobject.transform.parent = parent.transform;
+
+            return availableGameobject;
+        }
+
+
+
+
         public static void Destroy(GameObject instance)
         {
             instance.SetActive(false);
         }
+
+
+
+
 
         private static GameObject GetInactive(GameObject[] g)
         {
@@ -50,6 +73,5 @@ namespace DeTay.Pooler
             g.transform.rotation = rotation;
             g.SetActive(true);
         }
-
     }
 }

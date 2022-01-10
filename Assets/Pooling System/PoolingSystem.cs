@@ -19,4 +19,9 @@ public class PoolingSystem : MonoBehaviour
         pools.Add(new Pool());
     }
 
+    public void RemovePool(Pool pool)
+    {
+        pools.Remove(pool);
+    }
+
 }

@@ -32,13 +32,21 @@ public class BulletScript : MonoBehaviour
         rot.y = 0;
         Vector2 pos = contact.point;
 
-        GameObject paint = Pooler.Instantiate("Paint", pos, rot);
+        try
+        {
+            GameObject paint = Pooler.Instantiate("Paint", pos, rot);
 
-        //Set Scale (Incase of charge)
-        paint.transform.localScale = transform.gameObject.transform.localScale;
+            //Set Scale (Incase of charge)
+            paint.transform.localScale = transform.gameObject.transform.localScale;
 
-        //Set Color
-        paint.GetComponent<EnvironmentPaintScript>().paintColor = shooterScript.paintColor;
+            //Set Color
+            paint.GetComponent<EnvironmentPaintScript>().paintColor = shooterScript.paintColor;
+        }
+        catch
+        {
+
+        }
+
 
         //Bounce Effect
        if (shooterScript.powerUpSystem.bounce.Active == true)

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,6 +12,8 @@ public class ShooterScript : MonoBehaviour
     [SerializeField] private float projectileSpeed, cooldown;
     private bool cooldownRunning, chargeUpRunning;
     public Color paintColor;
+
+    public GameObject testParent;
 
     private void Update()
     {
@@ -54,15 +57,22 @@ public class ShooterScript : MonoBehaviour
     {
         StartCoroutine(Cooldown());
 
-        GameObject clone = Pooler.Instantiate("Bullet", bulletSpawnPoint.transform.position, bulletSpawnPoint.transform.rotation);
+        try
+        {
+            GameObject clone = Pooler.Instantiate("Bullet", bulletSpawnPoint.transform.position, bulletSpawnPoint.transform.rotation);
 
-        clone.GetComponent<SpriteRenderer>().color = paintColor;
+            clone.GetComponent<SpriteRenderer>().color = paintColor;
 
-        var rb2D = clone.gameObject.GetComponent<Rigidbody2D>();
-        rb2D.AddForce(clone.transform.right * projectileSpeed);
+            var rb2D = clone.gameObject.GetComponent<Rigidbody2D>();
+            rb2D.AddForce(clone.transform.right * projectileSpeed);
 
-        clone.transform.localScale = bubbleSize;
-        bubbleSize = new Vector2(0.3f, 0.3f);
+            clone.transform.localScale = bubbleSize;
+            bubbleSize = new Vector2(0.3f, 0.3f);
+        }
+        catch
+        {
+
+        }
     }
 
 

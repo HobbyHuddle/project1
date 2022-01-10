@@ -31,7 +31,5 @@ public class EnvironmentPaintScript : MonoBehaviour
         {
             Pooler.Destroy(gameObject);
         }
-
-        Debug.Log(spriteColor.a);
     }
 }

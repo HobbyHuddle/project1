@@ -10,10 +10,12 @@ public class Pool
     public GameObject prefab;
     public int spawnCount;
     public GameObject Parent;
-    public bool canGrow, resetParentOnDestroy;
+    public bool canGrow;
     private int index = 0;
 
     public GameObject[] spawnedObjects;
+
+
 
     public void CreateInstances()
     {
@@ -29,6 +31,8 @@ public class Pool
 
                     spawnedObjects[index] = instance;
                     index++;
+
+                    Pooler.AddToDictionary(instance, Parent);
 
                     instance.SetActive(false);
                 }

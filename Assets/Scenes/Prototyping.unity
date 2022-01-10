@@ -898,6 +898,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3523412303144075032, guid: c0625cad11c53084793908a1524fe62c, type: 3}
+      propertyPath: testParent
+      value: 
+      objectReference: {fileID: 122653373}
+    - target: {fileID: 3523412303144075032, guid: c0625cad11c53084793908a1524fe62c, type: 3}
       propertyPath: paintColor.a
       value: 1
       objectReference: {fileID: 0}
@@ -1670,14 +1674,12 @@ MonoBehaviour:
     spawnCount: 100
     Parent: {fileID: 1845878577}
     canGrow: 0
-    resetParentOnDestroy: 0
     spawnedObjects: []
   - poolName: Paint
     prefab: {fileID: 628070548456611317, guid: 0dd69f20085d8ba429d64ab5d94c9420, type: 3}
     spawnCount: 100
     Parent: {fileID: 1845878577}
     canGrow: 0
-    resetParentOnDestroy: 0
     spawnedObjects: []
 --- !u!4 &1845878579
 Transform:

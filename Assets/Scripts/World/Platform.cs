@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
 
-public class Platform : MonoBehaviour
+namespace World
 {
+    public class Platform : MonoBehaviour
+    {
         public Color defaultColor;
         public Color currentColor;
         public SpriteRenderer spriteRenderer;
@@ -16,4 +18,5 @@ public class Platform : MonoBehaviour
             currentColor = color;  // TODO: may not need this property any more
             spriteRenderer.color = color;
         }
+    }
 }

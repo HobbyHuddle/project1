@@ -10,15 +10,13 @@ public class GroundCheck : MonoBehaviour
 
     public bool IsTouching()
     {
-        // FIXME: divide by 3 workaround - why is boxCollider.size bigger than it appears in the scene? due to player scaling?
-        RaycastHit2D hit = Physics2D.BoxCast(transform.position, boxCollider.size/3, 0, boxCastDirection, distanceToTarget,targetLayer);
+        RaycastHit2D hit = Physics2D.BoxCast(transform.position, boxCollider.size, 0, boxCastDirection, distanceToTarget,targetLayer);
         return hit.collider != null;
     }
 
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.magenta;
-        // FIXME: divide by 3 workaround - why isnt the gizmo scaling to the size of the boxCollider?
-        Gizmos.DrawWireCube(boxCollider.bounds.center, boxCollider.size/3);
+        Gizmos.DrawWireCube(boxCollider.bounds.center, boxCollider.size);
     }
 }

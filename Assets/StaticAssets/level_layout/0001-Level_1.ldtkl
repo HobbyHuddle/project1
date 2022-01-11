@@ -58,7 +58,16 @@
 					"height": 32,
 					"defUid": 3,
 					"px": [63,271],
-					"fieldInstances": []
+					"fieldInstances": [{
+						"__identifier": "Name",
+						"__value": "Entrance",
+						"__type": "String",
+						"defUid": 8,
+						"realEditorValues": [{
+							"id": "V_String",
+							"params": ["Entrance"]
+						}]
+					}]
 				},
 				{
 					"__identifier": "Player",
@@ -80,7 +89,16 @@
 					"height": 32,
 					"defUid": 3,
 					"px": [539,111],
-					"fieldInstances": []
+					"fieldInstances": [{
+						"__identifier": "Name",
+						"__value": "Exit",
+						"__type": "String",
+						"defUid": 8,
+						"realEditorValues": [{
+							"id": "V_String",
+							"params": ["Exit"]
+						}]
+					}]
 				}
 			]
 		},

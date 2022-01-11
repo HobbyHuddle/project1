@@ -69,7 +69,7 @@
 					"height": 16,
 					"defUid": 5,
 					"px": [257,208],
-					"fieldInstances": []
+					"fieldInstances": [{ "__identifier": "Color", "__value": "#369E4E", "__type": "Color", "defUid": 9, "realEditorValues": [] }]
 				},
 				{
 					"__identifier": "Door",
@@ -80,7 +80,36 @@
 					"height": 32,
 					"defUid": 3,
 					"px": [547,127],
-					"fieldInstances": []
+					"fieldInstances": [{
+						"__identifier": "Name",
+						"__value": "Exit",
+						"__type": "String",
+						"defUid": 8,
+						"realEditorValues": [{
+							"id": "V_String",
+							"params": ["Exit"]
+						}]
+					}]
+				},
+				{
+					"__identifier": "Door",
+					"__grid": [4,16],
+					"__pivot": [0,0],
+					"__tile": null,
+					"width": 16,
+					"height": 32,
+					"defUid": 3,
+					"px": [67,271],
+					"fieldInstances": [{
+						"__identifier": "Name",
+						"__value": "Entrance",
+						"__type": "String",
+						"defUid": 8,
+						"realEditorValues": [{
+							"id": "V_String",
+							"params": ["Entrance"]
+						}]
+					}]
 				}
 			]
 		},

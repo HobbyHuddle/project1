@@ -13,7 +13,9 @@ public class ShooterScript : MonoBehaviour
     private bool cooldownRunning, chargeUpRunning;
     public Color paintColor;
 
-    public GameObject testParent;
+
+
+
 
     private void Update()
     {
@@ -57,8 +59,8 @@ public class ShooterScript : MonoBehaviour
     {
         StartCoroutine(Cooldown());
 
-        try
-        {
+        //try
+        //{
             GameObject clone = Pooler.Instantiate("Bullet", bulletSpawnPoint.transform.position, bulletSpawnPoint.transform.rotation);
 
             clone.GetComponent<SpriteRenderer>().color = paintColor;
@@ -68,11 +70,11 @@ public class ShooterScript : MonoBehaviour
 
             clone.transform.localScale = bubbleSize;
             bubbleSize = new Vector2(0.3f, 0.3f);
-        }
-        catch
-        {
+        //}
+        //catch
+        //{
 
-        }
+        //}
     }
 
 

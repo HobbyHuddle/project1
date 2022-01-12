@@ -895,7 +895,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3523412303144075032, guid: c0625cad11c53084793908a1524fe62c, type: 3}
       propertyPath: cooldown
-      value: 1
+      value: 0.001
       objectReference: {fileID: 0}
     - target: {fileID: 3523412303144075032, guid: c0625cad11c53084793908a1524fe62c, type: 3}
       propertyPath: testParent
@@ -1671,15 +1671,9 @@ MonoBehaviour:
   pools:
   - poolName: Bullet
     prefab: {fileID: 8450536478144450188, guid: baa6b40fa1aea164bb2fd95ad43182d8, type: 3}
-    spawnCount: 100
+    spawnCount: 50
     Parent: {fileID: 1845878577}
-    canGrow: 0
-    spawnedObjects: []
-  - poolName: Paint
-    prefab: {fileID: 628070548456611317, guid: 0dd69f20085d8ba429d64ab5d94c9420, type: 3}
-    spawnCount: 100
-    Parent: {fileID: 1845878577}
-    canGrow: 0
+    canGrow: 1
     spawnedObjects: []
 --- !u!4 &1845878579
 Transform:

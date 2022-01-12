@@ -6,9 +6,9 @@ using DeTay.Pooler;
 [System.Serializable]
 public class Pool
 {
-    public string poolName;
+    public string poolName = "Name of Pool";
     public GameObject prefab;
-    public int spawnCount;
+    public int spawnCount = 0;
     public GameObject Parent;
     public bool canGrow;
     private int index = 0;
@@ -31,9 +31,7 @@ public class Pool
 
                     spawnedObjects[index] = instance;
                     index++;
-
-                    Pooler.AddToDictionary(instance, Parent);
-
+                    
                     instance.SetActive(false);
                 }
                 else
@@ -48,6 +46,6 @@ public class Pool
             }
         }
 
-        Pooler.AddToDictionary(poolName, spawnedObjects);
+        Pooler.AddToDictionary(poolName, this);
     }
 }

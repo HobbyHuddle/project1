@@ -2,34 +2,24 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 
 namespace DeTay.Pooler
 {
     public class Pooler
     {
-        public static Dictionary<string, GameObject[]> pools = new Dictionary<string, GameObject[]>();
+        public static Dictionary<string, Pool> pools = new Dictionary<string, Pool>();
 
-        public static Dictionary<GameObject, GameObject> originalParents = new Dictionary<GameObject, GameObject>();
-
-        public static void AddToDictionary(string name, GameObject[] spawnedInstances)
+        public static void AddToDictionary(string name, Pool pool)
         {
-            pools.Add(name, spawnedInstances);
+            pools.Add(name, pool);
         }
-
-        public static void AddToDictionary(GameObject instance, GameObject parent)
-        {
-            originalParents.Add(instance, parent);
-        }
-
-
 
 
         public static GameObject Instantiate(string name, Vector3 positon, Quaternion rotation)
         {
-            GameObject[] array = pools[name];
-
-            GameObject availableGameobject = GetInactive(array);
+            GameObject availableGameobject = GetInactive(pools[name].spawnedObjects);
 
             if (availableGameobject != null)
             {
@@ -38,12 +28,26 @@ namespace DeTay.Pooler
             }
             else
             {
-                throw new Exception("No inactive Gameobject found! Increase the spawn count of '"+ name + "' or mark the pool as 'Can grow'.");
+                if (pools[name].canGrow == true)
+                {
+                    pools[name].spawnedObjects = ResizeArray(pools[name].spawnedObjects);
+
+                    GameObject newInstance = UnityEngine.Object.Instantiate(pools[name].prefab, positon, rotation);
+
+                    pools[name].spawnedObjects.SetValue(newInstance, pools[name].spawnedObjects.Length - 1);
+
+                    return newInstance;
+                }
+                else
+                {
+                    throw new Exception("No inactive Gameobject found! Increase the spawn count of '" + name + "' or mark the pool as 'Can grow'.");
+                }   
             }
 
             return availableGameobject;
 
         }
+
 
         public static GameObject Instantiate(string name, Vector3 positon, Quaternion rotation, GameObject parent)
         {
@@ -68,31 +72,20 @@ namespace DeTay.Pooler
 
             if (resetParent == true)
             {
-                if (originalParents.ContainsKey(instance))
+                foreach(Pool pool in pools.Values)
                 {
-                    GameObject parent = originalParents[instance];
-
-                    instance.transform.parent = parent.transform;
-                }
-                else
-                {
-                    instance.transform.parent = null;
+                    if(pool.spawnedObjects.Contains(instance))
+                    {
+                        instance.transform.parent = pool.Parent.transform;
+                    }
+                    else
+                    {
+                        instance.transform.parent = null;
+                    }
                 }
             }
         }
 
-
-        private static bool HasInactive(GameObject[] g)
-        {
-            for (int i = 0; i < g.Length; i++)
-            {
-                if (g[i].activeSelf == false)
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
 
         private static GameObject GetInactive(GameObject[] g)
         {
@@ -106,6 +99,28 @@ namespace DeTay.Pooler
             return null;
         }
 
+        public static GameObject[] ResizeArray(GameObject[] array)
+        {
+
+            int newLength = array.Length + 1;
+
+            GameObject[] temp = new GameObject[newLength];
+
+            for (int i = 0; i < array.Length; i++)
+            {
+                temp[i] = array[i];
+            }
+
+            array = new GameObject[newLength];
+
+            for (int i = 0; i < newLength; i++)
+            {
+                array[i] = temp[i];
+            }
+
+            return array;
+        }
+
         public static void SetPosition(GameObject g, Vector3 positon, Quaternion rotation)
         {
             if(g == null)
@@ -114,7 +129,9 @@ namespace DeTay.Pooler
             }
 
             g.transform.position = positon;
+
             g.transform.rotation = rotation;
+
             g.SetActive(true);
         }
     }

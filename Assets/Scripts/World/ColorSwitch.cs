@@ -18,37 +18,32 @@ namespace World
 
         private void Update()
         {
-            if (switchOn)
-            {
-                currentColor = onColor;
-            }
-            else
-            {
-                currentColor = offColor;
-            }
-            
             if (Input.GetKeyDown(KeyCode.J) && playerPresent)
             {
                 ToggleSwitch();
             }
         }
 
-        private void OnTriggerStay2D(Collider2D other)
+        private void OnTriggerEnter2D(Collider2D other)
         {
             if (other.CompareTag("Player"))
-            {
                 playerPresent = true;
-                Debug.Log("Player entered.");
-            }
-            else
-            {
+        }
+
+        private void OnTriggerExit2D(Collider2D other)
+        {
+            if (other.CompareTag("Player"))
                 playerPresent = false;
-            }
         }
 
         private void ToggleSwitch()
         {
             switchOn = !switchOn;
+            currentColor = switchOn switch
+            {
+                true => onColor,
+                false => offColor,
+            };
             onSwitch.Invoke(currentColor);
         }
     }

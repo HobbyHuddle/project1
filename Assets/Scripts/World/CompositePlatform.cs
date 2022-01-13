@@ -4,9 +4,11 @@ namespace World
 {
     public class CompositePlatform : Platform
     {
-        // Start is called before the first frame update
+        public bool active;
+        
         void Start()
         {
+            active = isActiveAndEnabled;
             Platform[] platforms = GetComponentsInChildren<Platform>();
             foreach (Platform platform in platforms)
             {
@@ -21,7 +23,13 @@ namespace World
             {
                 platform.spriteRenderer.color = color;
             }
-            gameObject.SetActive(true);
+            ToggleActive();
+        }
+
+        private void ToggleActive()
+        {
+            active = !active;
+            gameObject.SetActive(active);
         }
     }
 }

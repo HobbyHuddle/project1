@@ -15,7 +15,6 @@ namespace World
 
         public void ActivateColor(Color color)
         {
-            currentColor = color;  // TODO: may not need this property any more
             spriteRenderer.color = color;
         }
     }

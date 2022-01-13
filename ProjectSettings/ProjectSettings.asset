@@ -134,7 +134,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleVersion: 1.0.0.1
+  bundleVersion: 1.0.0.8
   preloadedAssets: []
   metroInputSource: 0
   wsaTransparentSwapchain: 0
@@ -156,11 +156,11 @@ PlayerSettings:
     Standalone: com.HobbyHuddle.MonochromeGame
     WebGL: com.HobbyHuddle.MonochromeGame
   buildNumber:
-    Standalone: 4
-    iPhone: 4
+    Standalone: 13
+    iPhone: 13
     tvOS: 0
   overrideDefaultApplicationIdentifier: 1
-  AndroidBundleVersionCode: 5
+  AndroidBundleVersionCode: 14
   AndroidMinSdkVersion: 19
   AndroidTargetSdkVersion: 0
   AndroidPreferredInstallLocation: 1
@@ -563,7 +563,7 @@ PlayerSettings:
   webGLDecompressionFallback: 1
   scriptingDefineSymbols:
     1: BUILD_TYPE_DEVELOPMENT;BUILD_PLATFORM_PC;BUILD_ARCH_WINDOWSX86
-    13: 
+    13: BUILD_TYPE_DEVELOPMENT;BUILD_PLATFORM_WEBGL;BUILD_ARCH_WEBGL
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend: {}

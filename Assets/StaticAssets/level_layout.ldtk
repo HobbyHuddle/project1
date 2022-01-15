@@ -9,7 +9,7 @@
 		"url": "https://ldtk.io"
 	},
 	"jsonVersion": "0.9.3",
-	"nextUid": 26,
+	"nextUid": 32,
 	"worldLayout": "Free",
 	"worldGridWidth": 256,
 	"worldGridHeight": 256,
@@ -141,7 +141,7 @@
 					"tileIds": [57,70,83],
 					"chance": 1,
 					"breakOnMatch": true,
-					"pattern": [0,0,0,0,-1,1,0,0,0],
+					"pattern": [0,0,1,0,-1,1,0,0,1],
 					"flipX": true,
 					"flipY": false,
 					"xModulo": 1,
@@ -163,7 +163,7 @@
 					"tileIds": [0],
 					"chance": 1,
 					"breakOnMatch": true,
-					"pattern": [0,0,0,0,-1,1,0,0,0],
+					"pattern": [0,-1,0,0,-1,1,0,0,0],
 					"flipX": true,
 					"flipY": false,
 					"xModulo": 1,
@@ -394,6 +394,102 @@
 					"textLanguageMode": null
 				}
 			]
+		},
+		{
+			"identifier": "Ostacle",
+			"uid": 28,
+			"tags": [],
+			"width": 128,
+			"height": 96,
+			"resizableX": true,
+			"resizableY": true,
+			"keepAspectRatio": true,
+			"fillOpacity": 0.76,
+			"lineOpacity": 1,
+			"hollow": false,
+			"color": "#FF6200",
+			"renderMode": "Ellipse",
+			"showName": true,
+			"tilesetId": null,
+			"tileId": null,
+			"tileRenderMode": "Stretch",
+			"maxCount": 0,
+			"limitScope": "PerLevel",
+			"limitBehavior": "MoveLastOne",
+			"pivotX": 0,
+			"pivotY": 0,
+			"fieldDefs": []
+		},
+		{
+			"identifier": "Paint_Gun",
+			"uid": 29,
+			"tags": [],
+			"width": 16,
+			"height": 16,
+			"resizableX": true,
+			"resizableY": true,
+			"keepAspectRatio": true,
+			"fillOpacity": 1,
+			"lineOpacity": 1,
+			"hollow": false,
+			"color": "#FF7600",
+			"renderMode": "Cross",
+			"showName": true,
+			"tilesetId": null,
+			"tileId": null,
+			"tileRenderMode": "Stretch",
+			"maxCount": 0,
+			"limitScope": "PerLevel",
+			"limitBehavior": "MoveLastOne",
+			"pivotX": 0,
+			"pivotY": 0,
+			"fieldDefs": [
+				{
+					"identifier": "paint_color",
+					"__type": "Color",
+					"uid": 30,
+					"type": "F_Color",
+					"isArray": false,
+					"canBeNull": false,
+					"arrayMinLength": null,
+					"arrayMaxLength": null,
+					"editorDisplayMode": "Hidden",
+					"editorDisplayPos": "Above",
+					"editorAlwaysShow": false,
+					"editorCutLongValues": true,
+					"min": null,
+					"max": null,
+					"regex": null,
+					"acceptFileTypes": null,
+					"defaultOverride": { "id": "V_Int", "params": [16738048] },
+					"textLanguageMode": null
+				}
+			]
+		},
+		{
+			"identifier": "NPC",
+			"uid": 31,
+			"tags": [],
+			"width": 16,
+			"height": 16,
+			"resizableX": true,
+			"resizableY": true,
+			"keepAspectRatio": true,
+			"fillOpacity": 0.5,
+			"lineOpacity": 1,
+			"hollow": false,
+			"color": "#AE00FF",
+			"renderMode": "Rectangle",
+			"showName": true,
+			"tilesetId": null,
+			"tileId": null,
+			"tileRenderMode": "FitInside",
+			"maxCount": 0,
+			"limitScope": "PerLevel",
+			"limitBehavior": "MoveLastOne",
+			"pivotX": 0,
+			"pivotY": 0,
+			"fieldDefs": []
 		}
 	], "tilesets": [
 		{
@@ -441,6 +537,26 @@
 			"textLanguageMode": null
 		},
 		{
+			"identifier": "Theme",
+			"__type": "String",
+			"uid": 26,
+			"type": "F_String",
+			"isArray": false,
+			"canBeNull": true,
+			"arrayMinLength": null,
+			"arrayMaxLength": null,
+			"editorDisplayMode": "NameAndValue",
+			"editorDisplayPos": "Above",
+			"editorAlwaysShow": true,
+			"editorCutLongValues": true,
+			"min": null,
+			"max": null,
+			"regex": null,
+			"acceptFileTypes": null,
+			"defaultOverride": null,
+			"textLanguageMode": null
+		},
+		{
 			"identifier": "Description",
 			"__type": "String",
 			"uid": 15,
@@ -463,7 +579,7 @@
 	] },
 	"levels": [
 		{
-			"identifier": "Level_0",
+			"identifier": "How_to_Switch",
 			"uid": 0,
 			"worldX": 0,
 			"worldY": 0,
@@ -471,22 +587,23 @@
 			"pxHei": 320,
 			"__bgColor": "#696A79",
 			"bgColor": null,
-			"useAutoIdentifier": true,
+			"useAutoIdentifier": false,
 			"bgRelPath": null,
 			"bgPos": null,
 			"bgPivotX": 0.5,
 			"bgPivotY": 0.5,
 			"__bgPos": null,
-			"externalRelPath": "level_layout/0000-Level_0.ldtkl",
+			"externalRelPath": "level_layout/0000-How_to_Switch.ldtkl",
 			"fieldInstances": [
 				{ "__identifier": "Goal", "__value": "Describe in 1 sentence the players goal.", "__type": "String", "defUid": 12, "realEditorValues": [] },
-				{ "__identifier": "Description", "__value": null, "__type": "String", "defUid": 15, "realEditorValues": [] }
+				{ "__identifier": "Description", "__value": null, "__type": "String", "defUid": 15, "realEditorValues": [] },
+				{ "__identifier": "Theme", "__value": null, "__type": "String", "defUid": 26, "realEditorValues": [] }
 			],
 			"layerInstances": null,
 			"__neighbours": [{ "levelUid": 7, "dir": "e" }]
 		},
 		{
-			"identifier": "Level_1",
+			"identifier": "Move_On",
 			"uid": 7,
 			"worldX": 640,
 			"worldY": 0,
@@ -494,13 +611,13 @@
 			"pxHei": 320,
 			"__bgColor": "#696A79",
 			"bgColor": null,
-			"useAutoIdentifier": true,
+			"useAutoIdentifier": false,
 			"bgRelPath": null,
 			"bgPos": null,
 			"bgPivotX": 0.5,
 			"bgPivotY": 0.5,
 			"__bgPos": null,
-			"externalRelPath": "level_layout/0001-Level_1.ldtkl",
+			"externalRelPath": "level_layout/0001-Move_On.ldtkl",
 			"fieldInstances": [
 				{
 					"__identifier": "Goal",
@@ -523,10 +640,64 @@
 							"The vertical platform is the only visible platform at level start. When the player jumps on it, the horizontal one will appear. Jumping on the horizontal one gives the player access to the switch which makes the green pillars appear, but it also causes the vertical platform to disappear. The player will have to make the jump from the horizontal platform down to the green pillars to reach the exit."
 						]
 					}]
-				}
+				},
+				{ "__identifier": "Theme", "__value": null, "__type": "String", "defUid": 26, "realEditorValues": [] }
 			],
 			"layerInstances": null,
 			"__neighbours": [{ "levelUid": 0, "dir": "w" }]
+		},
+		{
+			"identifier": "Oh_Shoot",
+			"uid": 27,
+			"worldX": 1284,
+			"worldY": -4,
+			"pxWid": 640,
+			"pxHei": 320,
+			"__bgColor": "#696A79",
+			"bgColor": null,
+			"useAutoIdentifier": false,
+			"bgRelPath": null,
+			"bgPos": null,
+			"bgPivotX": 0.5,
+			"bgPivotY": 0.5,
+			"__bgPos": null,
+			"externalRelPath": "level_layout/0002-Oh_Shoot.ldtkl",
+			"fieldInstances": [
+				{
+					"__identifier": "Goal",
+					"__value": "Use the paint gun to remove an obstacle for the npc.",
+					"__type": "String",
+					"defUid": 12,
+					"realEditorValues": [{
+						"id": "V_String",
+						"params": ["Use the paint gun to remove an obstacle for the npc."]
+					}]
+				},
+				{
+					"__identifier": "Description",
+					"__value": "There's an NPC that can't reach an exit due to an obstacle being in her way. The player must use the vertical platform to collect the paint gun from above. The player must color the npc the same color as the obstacle so that they can walk through it. To aim at the npc, the player can use the platforms above the obstacle.",
+					"__type": "String",
+					"defUid": 15,
+					"realEditorValues": [{
+						"id": "V_String",
+						"params": [
+							"There's an NPC that can't reach an exit due to an obstacle being in her way. The player must use the vertical platform to collect the paint gun from above. The player must color the npc the same color as the obstacle so that they can walk through it. To aim at the npc, the player can use the platforms above the obstacle."
+						]
+					}]
+				},
+				{
+					"__identifier": "Theme",
+					"__value": "Oh Shoot",
+					"__type": "String",
+					"defUid": 26,
+					"realEditorValues": [{
+						"id": "V_String",
+						"params": ["Oh Shoot"]
+					}]
+				}
+			],
+			"layerInstances": null,
+			"__neighbours": []
 		}
 	]
 }

@@ -153,16 +153,19 @@
 					"height": 16,
 					"defUid": 13,
 					"px": [110,279],
-					"fieldInstances": [{
-						"__identifier": "Motion",
-						"__value": "vertical",
-						"__type": "String",
-						"defUid": 14,
-						"realEditorValues": [{
-							"id": "V_String",
-							"params": ["vertical"]
-						}]
-					}]
+					"fieldInstances": [
+						{
+							"__identifier": "Motion",
+							"__value": "vertical",
+							"__type": "String",
+							"defUid": 14,
+							"realEditorValues": [{
+								"id": "V_String",
+								"params": ["vertical"]
+							}]
+						},
+						{ "__identifier": "Patrol", "__value": [], "__type": "Array<Point>", "defUid": 32, "realEditorValues": [] }
+					]
 				},
 				{
 					"__identifier": "Paint_Gun",
@@ -201,16 +204,19 @@
 					"height": 16,
 					"defUid": 13,
 					"px": [249,122],
-					"fieldInstances": [{
-						"__identifier": "Motion",
-						"__value": "horizontal",
-						"__type": "String",
-						"defUid": 14,
-						"realEditorValues": [{
-							"id": "V_String",
-							"params": ["horizontal"]
-						}]
-					}]
+					"fieldInstances": [
+						{
+							"__identifier": "Motion",
+							"__value": "horizontal",
+							"__type": "String",
+							"defUid": 14,
+							"realEditorValues": [{
+								"id": "V_String",
+								"params": ["horizontal"]
+							}]
+						},
+						{ "__identifier": "Patrol", "__value": [], "__type": "Array<Point>", "defUid": 32, "realEditorValues": [] }
+					]
 				}
 			]
 		},

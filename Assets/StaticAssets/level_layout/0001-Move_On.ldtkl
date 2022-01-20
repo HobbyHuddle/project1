@@ -133,16 +133,28 @@
 					"height": 16,
 					"defUid": 13,
 					"px": [81,111],
-					"fieldInstances": [{
-						"__identifier": "Motion",
-						"__value": "horizontal",
-						"__type": "String",
-						"defUid": 14,
-						"realEditorValues": [{
-							"id": "V_String",
-							"params": ["horizontal"]
-						}]
-					}]
+					"fieldInstances": [
+						{
+							"__identifier": "Motion",
+							"__value": "horizontal",
+							"__type": "String",
+							"defUid": 14,
+							"realEditorValues": [{
+								"id": "V_String",
+								"params": ["horizontal"]
+							}]
+						},
+						{
+							"__identifier": "Patrol",
+							"__value": [{ "cx": 14, "cy": 7 }],
+							"__type": "Array<Point>",
+							"defUid": 32,
+							"realEditorValues": [{
+								"id": "V_String",
+								"params": ["14,7"]
+							}]
+						}
+					]
 				},
 				{
 					"__identifier": "Moving_Platform",
@@ -153,16 +165,28 @@
 					"height": 16,
 					"defUid": 13,
 					"px": [256,212],
-					"fieldInstances": [{
-						"__identifier": "Motion",
-						"__value": "vertical",
-						"__type": "String",
-						"defUid": 14,
-						"realEditorValues": [{
-							"id": "V_String",
-							"params": ["vertical"]
-						}]
-					}]
+					"fieldInstances": [
+						{
+							"__identifier": "Motion",
+							"__value": "vertical",
+							"__type": "String",
+							"defUid": 14,
+							"realEditorValues": [{
+								"id": "V_String",
+								"params": ["vertical"]
+							}]
+						},
+						{
+							"__identifier": "Patrol",
+							"__value": [{ "cx": 17, "cy": 8 }],
+							"__type": "Array<Point>",
+							"defUid": 32,
+							"realEditorValues": [{
+								"id": "V_String",
+								"params": ["17,8"]
+							}]
+						}
+					]
 				},
 				{
 					"__identifier": "Switch",

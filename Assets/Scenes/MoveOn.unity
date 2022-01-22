@@ -134,6 +134,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 2728816854264540496, guid: d12c07aaae097354eaec4244e8272555, type: 3}
+      propertyPath: speed
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2728816854264540498, guid: d12c07aaae097354eaec4244e8272555, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -2544811111297675681, guid: 27c389aab94c9da4c90e1a6465cf299d, type: 3}
     - target: {fileID: 2728816854264540499, guid: d12c07aaae097354eaec4244e8272555, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -178,6 +186,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6853382344873220370, guid: d12c07aaae097354eaec4244e8272555, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: ba20f49270a114445aab7b025ebddd7b, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d12c07aaae097354eaec4244e8272555, type: 3}
 --- !u!1 &789194603

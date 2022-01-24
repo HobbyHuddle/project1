@@ -1,7 +1,103 @@
 fileFormatVersion: 2
 guid: 27c389aab94c9da4c90e1a6465cf299d
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -2544811111297675681
+    second: PC_idle_sheet_0
+  - first:
+      213: -8192455145814162336
+    second: PC_idle_sheet_1
+  - first:
+      213: 8197054724463931935
+    second: PC_idle_sheet_2
+  - first:
+      213: -8818249161333449275
+    second: PC_idle_sheet_3
+  - first:
+      213: 605272606628104749
+    second: PC_idle_sheet_4
+  - first:
+      213: -6943890250863006859
+    second: PC_idle_sheet_5
+  - first:
+      213: -4862554468729994058
+    second: PC_idle_sheet_6
+  - first:
+      213: -8688763966764121246
+    second: PC_idle_sheet_7
+  - first:
+      213: 1757116716559845720
+    second: PC_idle_sheet_8
+  - first:
+      213: 3107222119885988450
+    second: PC_idle_sheet_9
+  - first:
+      213: 659244675302291752
+    second: PC_idle_sheet_10
+  - first:
+      213: -5349906337694643225
+    second: PC_idle_sheet_11
+  - first:
+      213: 8792304828954334055
+    second: PC_idle_sheet_12
+  - first:
+      213: -5346888815166297933
+    second: PC_idle_sheet_13
+  - first:
+      213: -1353010392452035053
+    second: PC_idle_sheet_14
+  - first:
+      213: 2443452506622882185
+    second: PC_idle_sheet_15
+  - first:
+      213: 6318000148632718074
+    second: PC_idle_sheet_16
+  - first:
+      213: -4381821682001812214
+    second: PC_idle_sheet_17
+  - first:
+      213: 4380250468328718535
+    second: PC_idle_sheet_18
+  - first:
+      213: -4641620081052715320
+    second: PC_idle_sheet_19
+  - first:
+      213: 1947979005682912126
+    second: PC_idle_sheet_20
+  - first:
+      213: -7983960388645589480
+    second: PC_idle_sheet_21
+  - first:
+      213: -8174878008745051780
+    second: PC_idle_sheet_22
+  - first:
+      213: 4280567337786893493
+    second: PC_idle_sheet_23
+  - first:
+      213: 302448277535672450
+    second: PC_idle_sheet_24
+  - first:
+      213: 706176267754221333
+    second: PC_idle_sheet_25
+  - first:
+      213: 8113649993112144494
+    second: PC_idle_sheet_26
+  - first:
+      213: 2443098536409158973
+    second: PC_idle_sheet_27
+  - first:
+      213: -1735030748184436332
+    second: PC_idle_sheet_28
+  - first:
+      213: 6783160447166562476
+    second: PC_idle_sheet_29
+  - first:
+      213: -5160750268487754674
+    second: PC_idle_sheet_30
+  - first:
+      213: -9002426386888595889
+    second: PC_idle_sheet_31
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -32,7 +128,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -41,12 +137,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -75,9 +171,201 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: PC_idle_sheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5e82aaf6c30facd0800000000000000
+      internalID: -2544811111297675681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC_idle_sheet_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0640d6b437d8e4e80800000000000000
+      internalID: -8192455145814162336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC_idle_sheet_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f123c1097d9c1c170800000000000000
+      internalID: 8197054724463931935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC_idle_sheet_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5cd55dddb194f9580800000000000000
+      internalID: -8818249161333449275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC_idle_sheet_4
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2ac7569a3c566800800000000000000
+      internalID: 605272606628104749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC_idle_sheet_5
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57b230e6b9852af90800000000000000
+      internalID: -6943890250863006859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC_idle_sheet_6
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b44c5e397cb48cb0800000000000000
+      internalID: -4862554468729994058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC_idle_sheet_7
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2638fcf053f4b6780800000000000000
+      internalID: -8688763966764121246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

@@ -13,21 +13,37 @@ namespace Characters
         public float smoothDampening;
         public GroundCheck groundCheck;
 
+        public static readonly int Idle = Animator.StringToHash("idle");
+        public static readonly int Running = Animator.StringToHash("running");
+        public static readonly int Jumping = Animator.StringToHash("jumping");
+        public static readonly int Falling = Animator.StringToHash("falling");
+
         private float airTime;
         private Vector2 motion;
         private Vector2 velocity;
         private Rigidbody2D rigidbody2d;
+        private Animator animator;
+        private Vector3 currentScale;
 
-        private bool isJumping;
-        private bool isGrounded;
+        private bool jumping;
+        private bool grounded;
+        private bool facingLeft;
+        
         private float jumpVelocity => Mathf.Sqrt(jumpHeight * -2 * (Physics2D.gravity.y * rigidbody2d.gravityScale));
 
-        private bool IsReadyToJump => isGrounded && isJumping;
-    
+        private bool IsReadyToJump => grounded && jumping;
+        public bool IsIdle => motion.x == 0 & motion.y == 0;
+        public bool IsRunning => Mathf.Abs(motion.x) > 0 | Mathf.Abs(motion.y) > 0;
+        public bool IsJumping => jumping;
+        public bool IsFalling => !jumping && !grounded;
+        public bool IsFacingLeft => facingLeft;
+
         void Start()
         {
+            animator = GetComponent<Animator>();
             rigidbody2d = GetComponent<Rigidbody2D>();
             rigidbody2d.gravityScale = gravity;
+            currentScale = rigidbody2d.transform.localScale;
         }
 
         private void Update()
@@ -37,15 +53,17 @@ namespace Characters
                 x = Input.GetAxis("Horizontal"),
                 y = Input.GetAxis("Vertical")
             };
+            if (motion.x > 0) facingLeft = false;
+            if (motion.x < 0) facingLeft = true;
 
-            isGrounded = groundCheck.IsTouching();
+            grounded = groundCheck.IsTouching();
 
-            if (Input.GetButtonDown("Jump") && isGrounded)
+            if (Input.GetButtonDown("Jump") && grounded)
             {
-                isJumping = true;
+                jumping = true;
                 airTime = 0;
             }
-            if (isJumping)
+            if (jumping)
             {
                 airTime += Time.deltaTime;
             }
@@ -53,14 +71,26 @@ namespace Characters
             // FIXME: performance of the air limit isn't limiting air time correctly.
             if (Input.GetButtonUp("Jump") | airTime > airTimeLimit)
             {
-                isJumping = false;
+                jumping = false;
             }
+            
+            SetAnimationState();
         }
 
         // Update is called once per frame
         void FixedUpdate()
         {
             Move();
+            ChangeFaceDirection();
+        }
+        
+        public void ChangeFaceDirection() 
+        { 
+            if ((!IsFacingLeft && currentScale.x < 0) || (IsFacingLeft && currentScale.x > 0))
+            {
+                currentScale.x *= -1;
+            }
+            transform.localScale = currentScale;
         }
 
         public void Move()
@@ -76,8 +106,16 @@ namespace Characters
 
         public void Jump()
         {
-            isGrounded = false;
+            grounded = false;
             rigidbody2d.AddForce(Vector2.up * jumpVelocity, ForceMode2D.Impulse);
+        }
+
+        private void SetAnimationState()
+        {
+            animator.SetBool(Idle, IsIdle);
+            animator.SetBool(Running, IsRunning);
+            animator.SetBool(Jumping, IsJumping);
+            animator.SetBool(Falling, IsFalling);
         }
     }
 }

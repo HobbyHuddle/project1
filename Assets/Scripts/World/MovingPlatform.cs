@@ -37,7 +37,7 @@ namespace World
             else
             {
                 Debug.Log("Moving to start ...");
-                rb.position = Vector2.MoveTowards(rb.position, destination, speed * Time.deltaTime);
+                transform.position = Vector2.MoveTowards(rb.position, destination, speed * Time.deltaTime);
             }
         }
 
@@ -52,7 +52,8 @@ namespace World
             else
             {
                 Debug.Log("Moving to next ...");
-                rb.position = Vector2.MoveTowards(rb.position, destination, speed * Time.deltaTime);
+                // LESSON: Setting the transform.position instead of rb.position avoids physics that prevent player from landing on platform
+                transform.position = Vector2.MoveTowards(rb.position, destination, speed * Time.deltaTime);
             }
         }
 
@@ -60,7 +61,7 @@ namespace World
         {
             if (col.gameObject.CompareTag("Player"))
             {
-                // col.gameObject.transform.SetParent(gameObject.transform);
+                col.gameObject.transform.SetParent(transform, true);
             }
         }
 
@@ -68,7 +69,7 @@ namespace World
         {
             if (col.gameObject.CompareTag("Player"))
             {
-                // col.gameObject.transform.parent = null;
+                col.gameObject.transform.SetParent(null);
             }
         }
         

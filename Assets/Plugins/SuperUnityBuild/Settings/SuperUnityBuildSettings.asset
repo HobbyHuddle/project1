@@ -67,6 +67,7 @@ MonoBehaviour:
         enabledScenes:
         - fileGUID: 155fb8bc562fbd14ead84698b9daf9b1
         - fileGUID: 2cda990e2423bbf4892e6590ba056729
+        - fileGUID: 5436dd56079fc424ba40fb9dea9deec0
   _platformList:
     platforms:
     - {fileID: 2262587072758063314}

@@ -90,7 +90,7 @@ MonoBehaviour:
       - 
       - 
       _Values:
-      - enabled: 0
+      - enabled: 1
         childKeys: []
       - enabled: 1
         childKeys:
@@ -113,7 +113,7 @@ MonoBehaviour:
     showBuildInfo: 0
     hideDisabled: 0
     treeView: 0
-    selectedKeyChain: Development/PC/Windows x86 (App)
+    selectedKeyChain: Development/WebGL/WebGL
   _preBuildActions:
     buildActions: []
   _postBuildActions:

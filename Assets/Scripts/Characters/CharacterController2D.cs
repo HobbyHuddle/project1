@@ -29,6 +29,7 @@ namespace Characters
         private bool jumping;
         private bool grounded;
         private bool facingLeft;
+        private bool dead;
         
         private float jumpVelocity => Mathf.Sqrt(jumpHeight * -2 * (Physics2D.gravity.y * rigidbody2d.gravityScale));
 
@@ -36,8 +37,9 @@ namespace Characters
         public bool IsIdle => motion.x == 0 & motion.y == 0;
         public bool IsRunning => Mathf.Abs(motion.x) > 0 | Mathf.Abs(motion.y) > 0;
         public bool IsJumping => jumping;
-        public bool IsFalling => !jumping && !grounded;
+        public bool IsFalling => !dead && !jumping && !grounded;
         public bool IsFacingLeft => facingLeft;
+        public bool IsDead => dead;
 
         void Start()
         {
@@ -49,6 +51,15 @@ namespace Characters
 
         private void Update()
         {
+            if (IsDead)
+            {
+                motion = Vector2.zero;
+                // grounded = true;
+                // jumping = false;
+                SetAnimationState();
+                return;
+            }
+            
             motion = new Vector2
             {
                 x = Input.GetAxis("Horizontal"),
@@ -114,6 +125,12 @@ namespace Characters
         public void Die()
         {
             Debug.Log("Player has died.");
+            dead = true;
+        }
+
+        public void Revive()
+        {
+            dead = false;
         }
         
         private void SetAnimationState()
@@ -122,6 +139,7 @@ namespace Characters
             animator.SetBool(Running, IsRunning);
             animator.SetBool(Jumping, IsJumping);
             animator.SetBool(Falling, IsFalling);
+            animator.SetBool(Dead, IsDead);
         }
     }
 }

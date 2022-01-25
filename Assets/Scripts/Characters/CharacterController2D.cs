@@ -1,7 +1,14 @@
+using System;
+using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
+using World;
 
 namespace Characters
 {
+    [Serializable]
+    public class PlayerDeathEvent : UnityEvent {}
+
     [RequireComponent(typeof(Rigidbody2D))]
     public class CharacterController2D : MonoBehaviour
     {
@@ -17,6 +24,7 @@ namespace Characters
         public static readonly int Running = Animator.StringToHash("running");
         public static readonly int Jumping = Animator.StringToHash("jumping");
         public static readonly int Falling = Animator.StringToHash("falling");
+        public static readonly int Dead = Animator.StringToHash("dead");
 
         private float airTime;
         private Vector2 motion;
@@ -28,6 +36,7 @@ namespace Characters
         private bool jumping;
         private bool grounded;
         private bool facingLeft;
+        private bool dead;
         
         private float jumpVelocity => Mathf.Sqrt(jumpHeight * -2 * (Physics2D.gravity.y * rigidbody2d.gravityScale));
 
@@ -35,19 +44,33 @@ namespace Characters
         public bool IsIdle => motion.x == 0 & motion.y == 0;
         public bool IsRunning => Mathf.Abs(motion.x) > 0 | Mathf.Abs(motion.y) > 0;
         public bool IsJumping => jumping;
-        public bool IsFalling => !jumping && !grounded;
+        public bool IsFalling => !dead && !jumping && !grounded;
         public bool IsFacingLeft => facingLeft;
+        public bool IsDead => dead;
 
+        public PlayerDeathEvent onDeath;
+        
         void Start()
         {
             animator = GetComponent<Animator>();
             rigidbody2d = GetComponent<Rigidbody2D>();
             rigidbody2d.gravityScale = gravity;
             currentScale = rigidbody2d.transform.localScale;
+
+            var spawner = FindObjectOfType<Spawner>();
+            onDeath.AddListener(spawner.Spawn);
         }
 
         private void Update()
         {
+            if (IsDead)
+            {
+                motion = Vector2.zero;
+                SetAnimationState();
+                StartCoroutine(RemoveCorpse());
+                return;
+            }
+            
             motion = new Vector2
             {
                 x = Input.GetAxis("Horizontal"),
@@ -110,12 +133,26 @@ namespace Characters
             rigidbody2d.AddForce(Vector2.up * jumpVelocity, ForceMode2D.Impulse);
         }
 
+        public void Die()
+        {
+            Debug.Log("Player has died.");
+            dead = true;
+        }
+
+        IEnumerator RemoveCorpse()
+        {
+            yield return new WaitForSeconds(2);
+            onDeath.Invoke();
+            Destroy(gameObject);
+        }
+
         private void SetAnimationState()
         {
             animator.SetBool(Idle, IsIdle);
             animator.SetBool(Running, IsRunning);
             animator.SetBool(Jumping, IsJumping);
             animator.SetBool(Falling, IsFalling);
+            animator.SetBool(Dead, IsDead);
         }
     }
 }

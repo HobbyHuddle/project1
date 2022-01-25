@@ -13,5 +13,10 @@ namespace Characters
         {
             inventory.Add(item);
         }
+
+        public void Die()
+        {
+            
+        }
     }
 }

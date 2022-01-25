@@ -4,11 +4,10 @@ namespace World
 {
     public class CompositePlatform : Platform
     {
-        public bool active;
-        
+        public bool isActive;
         void Start()
         {
-            active = isActiveAndEnabled;
+            isActive = isActiveAndEnabled;
             Platform[] platforms = GetComponentsInChildren<Platform>();
             foreach (Platform platform in platforms)
             {
@@ -28,8 +27,8 @@ namespace World
 
         private void ToggleActive()
         {
-            active = !active;
-            gameObject.SetActive(active);
+            isActive = !isActive;
+            gameObject.SetActive(isActive);
         }
     }
 }

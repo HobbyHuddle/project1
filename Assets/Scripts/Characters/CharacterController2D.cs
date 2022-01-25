@@ -58,7 +58,7 @@ namespace Characters
             currentScale = rigidbody2d.transform.localScale;
 
             var spawner = FindObjectOfType<Spawner>();
-            onDeath.AddListener(spawner.Spawn);
+            if (spawner != null) onDeath.AddListener(spawner.Spawn);
         }
 
         private void Update()

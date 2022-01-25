@@ -1,7 +1,13 @@
+using System;
+using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Characters
 {
+    [Serializable]
+    public class PlayerDeathEvent : UnityEvent {}
+
     [RequireComponent(typeof(Rigidbody2D))]
     public class CharacterController2D : MonoBehaviour
     {
@@ -41,6 +47,8 @@ namespace Characters
         public bool IsFacingLeft => facingLeft;
         public bool IsDead => dead;
 
+        public PlayerDeathEvent onDeath;
+        
         void Start()
         {
             animator = GetComponent<Animator>();
@@ -54,9 +62,8 @@ namespace Characters
             if (IsDead)
             {
                 motion = Vector2.zero;
-                // grounded = true;
-                // jumping = false;
                 SetAnimationState();
+                StartCoroutine(RemoveCorpse());
                 return;
             }
             
@@ -128,11 +135,13 @@ namespace Characters
             dead = true;
         }
 
-        public void Revive()
+        IEnumerator RemoveCorpse()
         {
-            dead = false;
+            yield return new WaitForSeconds(2);
+            Destroy(gameObject);
+            onDeath.Invoke();
         }
-        
+
         private void SetAnimationState()
         {
             animator.SetBool(Idle, IsIdle);

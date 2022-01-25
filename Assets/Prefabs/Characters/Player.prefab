@@ -67,6 +67,14 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -2544811111297675681, guid: 27c389aab94c9da4c90e1a6465cf299d, type: 3}
+    - target: {fileID: 3523412301531896659, guid: c0625cad11c53084793908a1524fe62c, type: 3}
+      propertyPath: speed
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3523412301531896659, guid: c0625cad11c53084793908a1524fe62c, type: 3}
+      propertyPath: jumpHeight
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 5343241974006656785, guid: c0625cad11c53084793908a1524fe62c, type: 3}
       propertyPath: m_Controller
       value: 

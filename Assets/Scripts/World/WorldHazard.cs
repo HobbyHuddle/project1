@@ -16,7 +16,7 @@ namespace World
             {
                 var player = col.GetComponent<CharacterController2D>();
                 Debug.Log("Player has died by " + damageType);
-                // player.Die();
+                player.Die();
             }
         }
     }

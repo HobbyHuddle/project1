@@ -17,6 +17,7 @@ namespace Characters
         public static readonly int Running = Animator.StringToHash("running");
         public static readonly int Jumping = Animator.StringToHash("jumping");
         public static readonly int Falling = Animator.StringToHash("falling");
+        public static readonly int Dead = Animator.StringToHash("dead");
 
         private float airTime;
         private Vector2 motion;
@@ -110,6 +111,11 @@ namespace Characters
             rigidbody2d.AddForce(Vector2.up * jumpVelocity, ForceMode2D.Impulse);
         }
 
+        public void Die()
+        {
+            Debug.Log("Player has died.");
+        }
+        
         private void SetAnimationState()
         {
             animator.SetBool(Idle, IsIdle);

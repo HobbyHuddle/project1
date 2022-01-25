@@ -50,8 +50,8 @@ MonoBehaviour:
     buildPath: $VERSION/$RELEASE_TYPE/$PLATFORM/$ARCHITECTURE
     openFolderPostBuild: 1
   _productParameters:
-    buildCounter: 9
-    buildVersion: 1.0.0.9
+    buildCounter: 10
+    buildVersion: 1.0.0.10
     versionTemplate: 1.0.0.$BUILD
     autoGenerate: 1
     syncWithPlayerSettings: 0
@@ -68,6 +68,7 @@ MonoBehaviour:
         - fileGUID: 155fb8bc562fbd14ead84698b9daf9b1
         - fileGUID: 2cda990e2423bbf4892e6590ba056729
         - fileGUID: 5436dd56079fc424ba40fb9dea9deec0
+        - fileGUID: 9bfcb9f5c5da30642bf0d96d7d980b86
   _platformList:
     platforms:
     - {fileID: 2262587072758063314}

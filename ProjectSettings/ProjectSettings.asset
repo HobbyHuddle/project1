@@ -134,7 +134,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleVersion: 1.0.0.9
+  bundleVersion: 1.0.0.10
   preloadedAssets: []
   metroInputSource: 0
   wsaTransparentSwapchain: 0
@@ -156,11 +156,11 @@ PlayerSettings:
     Standalone: com.HobbyHuddle.MonochromeGame
     WebGL: com.HobbyHuddle.MonochromeGame
   buildNumber:
-    Standalone: 16
-    iPhone: 16
+    Standalone: 17
+    iPhone: 17
     tvOS: 0
   overrideDefaultApplicationIdentifier: 1
-  AndroidBundleVersionCode: 17
+  AndroidBundleVersionCode: 18
   AndroidMinSdkVersion: 19
   AndroidTargetSdkVersion: 0
   AndroidPreferredInstallLocation: 1

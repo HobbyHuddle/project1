@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/ColorTutorial.unity
+    path: Assets/Scenes/SwitchTutorial.unity
     guid: 155fb8bc562fbd14ead84698b9daf9b1
   - enabled: 1
     path: Assets/Scenes/Prototyping.unity

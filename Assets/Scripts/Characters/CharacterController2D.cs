@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
+using World;
 
 namespace Characters
 {
@@ -55,6 +56,9 @@ namespace Characters
             rigidbody2d = GetComponent<Rigidbody2D>();
             rigidbody2d.gravityScale = gravity;
             currentScale = rigidbody2d.transform.localScale;
+
+            var spawner = FindObjectOfType<Spawner>();
+            onDeath.AddListener(spawner.Spawn);
         }
 
         private void Update()
@@ -138,8 +142,8 @@ namespace Characters
         IEnumerator RemoveCorpse()
         {
             yield return new WaitForSeconds(2);
-            Destroy(gameObject);
             onDeath.Invoke();
+            Destroy(gameObject);
         }
 
         private void SetAnimationState()

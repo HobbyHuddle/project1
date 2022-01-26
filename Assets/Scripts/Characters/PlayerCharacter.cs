@@ -7,11 +7,20 @@ namespace Characters
     public class PlayerCharacter : MonoBehaviour
     {
         public List<ItemData> inventory;
+        public Transform itemSlot;
 
 
-        public void CollectItem(ItemData item)
+        public void CollectItem(Transform obj)
         {
-            inventory.Add(item);
+            var shooter = obj.GetComponent<ShooterScript>();
+            // inventory.Add(item);
+            if (shooter.item.itemType == ItemType.Weapon)
+            {
+                Debug.Log("Equipping weapon ...");
+                shooter.equipped = true;
+                obj.SetParent(itemSlot.transform);
+                obj.position = itemSlot.position;
+            }
         }
 
         public void Die()

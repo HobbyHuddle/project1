@@ -1,33 +1,40 @@
 using System.Collections;
 using System.Collections.Generic;
+using Characters;
+using Items;
 using UnityEngine;
 
-public class ShooterScript : MonoBehaviour
+public class ShooterScript : CollectibleItem
 {
     [HideInInspector] public PowerUpSystem powerUpSystem;
     private Vector2 dirToMouse, bubbleSize = new Vector2 (0.3f, 0.3f);
-    [HideInInspector] public GameObject environmentPaintPrefab, environmentPaintParent, bulletPrefab, bulletsParent, bulletSpawnPoint, gun;
+    public GameObject environmentPaintPrefab, environmentPaintParent, bulletPrefab, bulletsParent, bulletSpawnPoint, gun;
     [SerializeField] private float projectileSpeed, cooldown;
     private bool cooldownRunning, chargeUpRunning;
     public Color paintColor;
+    public bool equipped;
 
     private void Update()
     {
-        //Rotate gun towards Mouse
-        Vector3 pos = Camera.main.WorldToScreenPoint(transform.position);
-        dirToMouse = Input.mousePosition - pos;
-        float angle = Mathf.Atan2(dirToMouse.y, dirToMouse.x) * Mathf.Rad2Deg;
-        gun.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-
-
-        //Left-Click To Shoot
-        if(Input.GetKey(KeyCode.Mouse0))
+        if (equipped)
         {
-            if (cooldownRunning == false)
+            //Rotate gun towards Mouse
+            Vector3 pos = Camera.main.WorldToScreenPoint(transform.position);
+            dirToMouse = Input.mousePosition - pos;
+            float angle = Mathf.Atan2(dirToMouse.y, dirToMouse.x) * Mathf.Rad2Deg;
+            gun.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+
+
+            //Left-Click To Shoot
+            if(Input.GetKey(KeyCode.Mouse0))
             {
-                PowerUpOnShot();
+                if (cooldownRunning == false)
+                {
+                    PowerUpOnShot();
+                }
             }
         }
+        
     }
 
 

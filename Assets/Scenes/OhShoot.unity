@@ -456,11 +456,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7474377650445241919, guid: 5882bdbe1d6d8a14faaf05f235145e29, type: 3}
       propertyPath: sceneName
-      value: MoveOn
+      value: OhShoot
       objectReference: {fileID: 0}
     - target: {fileID: 7474377650445241919, guid: 5882bdbe1d6d8a14faaf05f235145e29, type: 3}
       propertyPath: sceneNumber
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5882bdbe1d6d8a14faaf05f235145e29, type: 3}
@@ -929,6 +929,10 @@ PrefabInstance:
       propertyPath: bulletsParent
       value: 
       objectReference: {fileID: 1006662658}
+    - target: {fileID: 776011584251014571, guid: 080475539041b3843be28e9eb2d56ec4, type: 3}
+      propertyPath: projectileSpeed
+      value: 850
+      objectReference: {fileID: 0}
     - target: {fileID: 776011584251014571, guid: 080475539041b3843be28e9eb2d56ec4, type: 3}
       propertyPath: collectiblesParent
       value: 

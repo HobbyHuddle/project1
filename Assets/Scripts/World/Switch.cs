@@ -32,6 +32,10 @@ namespace World
         {
             if (other.CompareTag("Player"))
                 playerPresent = true;
+            if (other.CompareTag("Projectile"))
+            {
+                ToggleSwitch();
+            }
         }
 
         private void OnTriggerExit2D(Collider2D other)

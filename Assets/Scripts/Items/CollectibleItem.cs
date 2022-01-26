@@ -23,13 +23,16 @@ namespace Items
 
         private void OnTriggerEnter2D(Collider2D col)
         {
+            Debug.Log("Collectible triggered by " + col);
             if (col.gameObject.CompareTag("Player"))
             {
+                Debug.Log("Collectible triggered...");
                 onColorInteraction.Invoke(item.color);
                 var player = col.gameObject.GetComponent<PlayerCharacter>();
-                player.CollectItem(item);
-                Destroy(gameObject);
+                player.CollectItem(transform);
+                // Destroy(gameObject);
             }
         }
+
     }
 }

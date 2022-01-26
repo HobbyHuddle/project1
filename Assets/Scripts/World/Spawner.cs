@@ -8,7 +8,7 @@ namespace World
 
         public void Spawn()
         {
-            var character = Instantiate(characterPrefab, transform.position, Quaternion.identity, null);
+            Instantiate(characterPrefab, transform.position, Quaternion.identity, null);
         }
     }
 }

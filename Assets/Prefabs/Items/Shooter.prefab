@@ -90,9 +90,12 @@ MonoBehaviour:
   bulletsParent: {fileID: 0}
   bulletSpawnPoint: {fileID: 776011584356053126}
   gun: {fileID: 776011584113028111}
+  spawnPoint: {fileID: 0}
+  collectiblesParent: {fileID: 0}
   projectileSpeed: 750
   cooldown: 0
   paintColor: {r: 0, g: 0, b: 0, a: 0}
+  equipped: 0
 --- !u!114 &6398554390050131130
 MonoBehaviour:
   m_ObjectHideFlags: 0

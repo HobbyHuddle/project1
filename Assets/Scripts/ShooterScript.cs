@@ -9,6 +9,9 @@ public class ShooterScript : CollectibleItem
     [HideInInspector] public PowerUpSystem powerUpSystem;
     private Vector2 dirToMouse, bubbleSize = new Vector2 (0.3f, 0.3f);
     public GameObject environmentPaintPrefab, environmentPaintParent, bulletPrefab, bulletsParent, bulletSpawnPoint, gun;
+    public Transform spawnPoint;
+    public Transform collectiblesParent;
+    
     [SerializeField] private float projectileSpeed, cooldown;
     private bool cooldownRunning, chargeUpRunning;
     public Color paintColor;
@@ -71,7 +74,14 @@ public class ShooterScript : CollectibleItem
         bubbleSize = new Vector2(0.3f, 0.3f);
     }
 
-
+    public void RespawnOnDeath()
+    {
+        equipped = false;
+        transform.SetParent(collectiblesParent);
+        transform.position = spawnPoint.position;
+        // TODO: reset the rotation on the GUN WITHIN shooter
+    }
+    
     //Cooldown coroutine. Takes the coolddown variable to wait in seconds.
     IEnumerator Cooldown()
     {

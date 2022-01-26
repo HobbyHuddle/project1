@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -12,6 +14,7 @@ namespace World
         public Color defaultColor;
         public Color currentColor;
         public SpriteRenderer spriteRenderer;
+        public List<SpriteRenderer> spriteRenderers;
         private bool active;
 
         public LandingEvent onLandingEvent;
@@ -20,11 +23,22 @@ namespace World
         {
             active = isActiveAndEnabled;
             spriteRenderer.color = defaultColor;
+            spriteRenderers = GetComponentsInChildren<SpriteRenderer>().ToList();
+            UpdateSpriteColors(defaultColor);
+        }
+
+        private void UpdateSpriteColors(Color color)
+        {
+            foreach (var spriteRenderer1 in spriteRenderers)
+            {
+                spriteRenderer1.color = color;
+            }
         }
 
         public void ActivateColor(Color color)
         {
             spriteRenderer.color = color;
+            UpdateSpriteColors(color);
         }
 
         public void Activate()

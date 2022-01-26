@@ -11,8 +11,10 @@ public class BulletScript : MonoBehaviour
 
     private void Awake()
     {
+        // FIXME: needs a serious refactor; its not clear at all why the next 2 lines produce a different gameobject with errors than L17.
         GameObject shooter = GameObject.FindGameObjectWithTag("Player").transform.Find("Shooter").gameObject;
         shooterScript = shooter.GetComponent<ShooterScript>();
+        shooterScript = FindObjectOfType<ShooterScript>();
     }
 
     private void Start()

@@ -39,5 +39,12 @@ namespace Characters
             audioSource.clip = sfxClips.runSfx;
             audioSource.Play();
         }
+        
+        public void PlayerJumpAudio()
+        {
+            audioSource.clip = sfxClips.jumpSfx;
+            if (!audioSource.isPlaying)
+                audioSource.Play();
+        }
     }
 }

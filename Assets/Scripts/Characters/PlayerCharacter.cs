@@ -8,6 +8,8 @@ namespace Characters
     {
         public List<ItemData> inventory;
         public Transform itemSlot;
+        public AudioSource audioSource;
+        public CharacterSFX sfxClips;
         
         public void CollectItem(Transform obj)
         {
@@ -24,6 +26,25 @@ namespace Characters
                 obj.SetParent(itemSlot.transform);
                 obj.position = itemSlot.position;
             }
+        }
+
+        public void PlayDeathAudio()
+        {
+            audioSource.clip = sfxClips.deathSfx;
+            audioSource.Play();
+        }
+
+        public void PlayerRunAudio()
+        {
+            audioSource.clip = sfxClips.runSfx;
+            audioSource.Play();
+        }
+        
+        public void PlayerJumpAudio()
+        {
+            audioSource.clip = sfxClips.jumpSfx;
+            if (!audioSource.isPlaying)
+                audioSource.Play();
         }
     }
 }

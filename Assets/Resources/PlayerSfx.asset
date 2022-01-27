@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff2957dc21ad414f9634103cb64d669a, type: 3}
+  m_Name: PlayerSfx
+  m_EditorClassIdentifier: Assembly-CSharp:Characters:CharacterSfx
+  runSfx: {fileID: 8300000, guid: aa4f2e14162112f4f90bef540ba7e217, type: 3}
+  deathSfx: {fileID: 8300000, guid: c8f581199e48c6042a62d6c6d05291e7, type: 3}
+  jumpSfx: {fileID: 8300000, guid: d55a4d83e4360eb41a3d27e7971319c0, type: 3}

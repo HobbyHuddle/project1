@@ -1,6 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
-using Characters;
 using Items;
 using UnityEngine;
 
@@ -11,6 +9,7 @@ public class ShooterScript : CollectibleItem
     public GameObject environmentPaintPrefab, environmentPaintParent, bulletPrefab, bulletsParent, bulletSpawnPoint, gun;
     public Transform spawnPoint;
     public Transform collectiblesParent;
+    public AudioSource sfx;
     
     [SerializeField] private float projectileSpeed, cooldown;
     private bool cooldownRunning, chargeUpRunning;
@@ -69,6 +68,7 @@ public class ShooterScript : CollectibleItem
 
         var rb2D = clone.gameObject.GetComponent<Rigidbody2D>();
         rb2D.AddForce(clone.transform.right * projectileSpeed);
+        sfx.Play();
 
         clone.transform.localScale = bubbleSize;
         bubbleSize = new Vector2(0.3f, 0.3f);

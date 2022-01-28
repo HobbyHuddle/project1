@@ -28,7 +28,7 @@ public class ShooterScript : CollectibleItem
 
 
             //Left-Click To Shoot
-            if(Input.GetKey(KeyCode.Mouse0))
+            if(Input.GetButtonDown("Fire1"))
             {
                 if (cooldownRunning == false)
                 {

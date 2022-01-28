@@ -18,7 +18,7 @@ namespace World
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.J) && playerPresent)
+            if (Input.GetButtonDown("Fire2") && playerPresent)
             {
                 ToggleSwitch();
             }

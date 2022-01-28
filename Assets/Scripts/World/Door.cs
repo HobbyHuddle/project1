@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -11,19 +12,24 @@ namespace World
 
         void Update()
         {
-            if (Input.GetKeyDown(KeyCode.J) && playerPresent)
+            if (Input.GetButtonDown("Fire2") && playerPresent)
             {
                 SceneManager.LoadScene(sceneName);
             }
         }
 
-        public void OnTriggerStay2D(Collider2D other)
+        public void OnTriggerEnter2D(Collider2D other)
         {
             if (other.CompareTag("Player"))
             {
                 playerPresent = true;
             }
-            else
+        }
+
+        private void OnTriggerExit2D(Collider2D other)
+        {
+            Debug.Log("Player not present.");
+            if (other.CompareTag("Player"))
             {
                 playerPresent = false;
             }
